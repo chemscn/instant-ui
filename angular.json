@@ -3,5 +3,140 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "instant-ui-library": {
+      "projectType": "library",
+      "root": "projects/instant-ui-library",
+      "sourceRoot": "projects/instant-ui-library/src",
+      "prefix": "iu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/instant-ui-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/instant-ui-library/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/instant-ui-library/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/instant-ui-library/src/test.ts",
+            "tsConfig": "projects/instant-ui-library/tsconfig.spec.json",
+            "karmaConfig": "projects/instant-ui-library/karma.conf.js"
+          }
+        }
+      }
+    },
+    "instant-ui-showcase": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/instant-ui-showcase",
+      "sourceRoot": "projects/instant-ui-showcase/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/instant-ui-showcase",
+            "index": "projects/instant-ui-showcase/src/index.html",
+            "main": "projects/instant-ui-showcase/src/main.ts",
+            "polyfills": "projects/instant-ui-showcase/src/polyfills.ts",
+            "tsConfig": "projects/instant-ui-showcase/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/instant-ui-showcase/src/favicon.ico",
+              "projects/instant-ui-showcase/src/assets"
+            ],
+            "styles": [
+              "projects/instant-ui-showcase/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/instant-ui-showcase/src/environments/environment.ts",
+                  "with": "projects/instant-ui-showcase/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "instant-ui-showcase:build:production"
+            },
+            "development": {
+              "browserTarget": "instant-ui-showcase:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "instant-ui-showcase:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/instant-ui-showcase/src/test.ts",
+            "polyfills": "projects/instant-ui-showcase/src/polyfills.ts",
+            "tsConfig": "projects/instant-ui-showcase/tsconfig.spec.json",
+            "karmaConfig": "projects/instant-ui-showcase/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/instant-ui-showcase/src/favicon.ico",
+              "projects/instant-ui-showcase/src/assets"
+            ],
+            "styles": [
+              "projects/instant-ui-showcase/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "instant-ui-library"
 }
