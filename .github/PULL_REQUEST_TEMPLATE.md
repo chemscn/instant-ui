@@ -1,9 +1,5 @@
-<!--- Provide a general summary of your changes in the Title above -->
-
 ## Description
 <!--- Give a summary of the change. -->
-
-<!-- insert rally markdown link with title -->
 
 ## Motivation and Context
 <!--- Why is this change required? What problem does it solve? -->
