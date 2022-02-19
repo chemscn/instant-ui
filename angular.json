@@ -8,6 +8,12 @@
       "root": "projects/instant-ui-library",
       "sourceRoot": "projects/instant-ui-library/src",
       "prefix": "iu",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "changeDetection": "OnPush"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -115,24 +121,6 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "instant-ui-showcase:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/instant-ui-showcase/src/test.ts",
-            "polyfills": "projects/instant-ui-showcase/src/polyfills.ts",
-            "tsConfig": "projects/instant-ui-showcase/tsconfig.spec.json",
-            "karmaConfig": "projects/instant-ui-showcase/karma.conf.js",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/instant-ui-showcase/src/favicon.ico",
-              "projects/instant-ui-showcase/src/assets"
-            ],
-            "styles": [
-              "projects/instant-ui-showcase/src/styles.scss"
-            ],
-            "scripts": []
           }
         }
       }
