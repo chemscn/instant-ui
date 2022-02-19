@@ -8,9 +8,8 @@ describe('InstantUiLibraryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InstantUiLibraryComponent ]
-    })
-    .compileComponents();
+      declarations: [InstantUiLibraryComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

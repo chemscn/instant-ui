@@ -37,6 +37,15 @@
             "tsConfig": "projects/instant-ui-library/tsconfig.spec.json",
             "karmaConfig": "projects/instant-ui-library/karma.conf.js"
           }
+        },
+        "lint":{
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns":[
+              "projects/instant-ui-library/**/*.ts",
+              "projects/instant-ui-library/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -121,6 +130,15 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "instant-ui-showcase:build"
+          }
+        },
+        "lint":{
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns":[
+              "projects/instant-ui-showcase/**/*.ts",
+              "projects/instant-ui-showcase/**/*.html"
+            ]
           }
         }
       }
