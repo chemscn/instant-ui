@@ -1,0 +1,50 @@
+{
+  "ignorePatterns": [
+    "!**/*"
+  ],
+  "overrides": [
+    {
+      "plugins": ["@typescript-eslint", "@angular-eslint"],
+      "parser": "@typescript-eslint/parser",
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "project": [
+          "projects/instant-ui-showcase/tsconfig.app.json",
+          "projects/instant-ui-showcase/tsconfig.spec.json"
+        ],
+        "createDefaultProgram": true,
+        "plugins": ["@typescript-eslint", "@angular-eslint"]
+      },
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "parser": "@angular-eslint/template-parser",
+      "plugins": ["@angular-eslint/template"],
+      "rules": {}
+    }
+  ]
+}

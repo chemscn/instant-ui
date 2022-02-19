@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'instant-ui',
+  selector: 'iu-instant',
   template: `<ng-content></ng-content> `,
   styleUrls: ['../styles/_global.styles.scss'],
   encapsulation: ViewEncapsulation.None,
