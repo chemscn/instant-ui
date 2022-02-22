@@ -40,3 +40,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#storybook
+/storybook-static
+
+#package lock
+package-lock.json
