@@ -4,7 +4,7 @@
     "injectables": [
         {
             "name": "InstantUiLibraryService",
-            "id": "injectable-InstantUiLibraryService-71254fad5ac1143aeb60878b7c20f9e361fa14f95de00adcebbe6591f001a73e34dfe17f4a2414dc551b998604f1c582f282511cb0ad01f6883e8048d4a65ae5",
+            "id": "injectable-InstantUiLibraryService-6d62d307de6f12924e3a4b55f974319c7539207a435ac92374603c4ead2c7f1e526c59f5f8285feeaa2e27560a845f27488fc6aeb8138f45abfdf5408904b21c",
             "file": "projects/instant-ui-library/src/lib/root/instant-ui-library.service.ts",
             "properties": [],
             "methods": [],
@@ -12,7 +12,7 @@
             "deprecationMessage": "",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Injectable } from '@angular/core';\r\n\r\n@Injectable({\r\n  providedIn: 'root',\r\n})\r\nexport class InstantUiLibraryService {\r\n  constructor() {}\r\n}\r\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class InstantUiLibraryService {\n  constructor() {}\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -31,7 +31,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-4bae16eb3ce93eccb6e0e6870dfc5194f1ee72b431b72b671234b42409a6bf829466313922cbe07ed5a75f411668518c4e751507d3859b8462a1a4756b1782ab",
+            "id": "component-AppComponent-97501a516726b30d0c1ff302d1116e2b91a63180e1b71e47f89a224cda885d2170d43e7dc4e1dc1086bfc798a8a4ca332a552be3928065c64b3f426d6f67ea44",
             "file": "projects/instant-ui-showcase/src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -69,7 +69,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  templateUrl: './app.component.html',\r\n  styleUrls: ['./app.component.scss'],\r\n})\r\nexport class AppComponent {\r\n  title = 'instant-ui-showcase';\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'instant-ui-showcase';\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -82,7 +82,7 @@
         },
         {
             "name": "InstantUiLibraryComponent",
-            "id": "component-InstantUiLibraryComponent-f638be61f24a10de80db907472a46e442eddb7204f04eb95c14c1b819bee5fa0ed620adae1ed5acb234bf2f848375d98ffe5724ffadbc9b5ba35f37cf45efa01",
+            "id": "component-InstantUiLibraryComponent-d54fab971d02003ef5e7a134eefae2352750b50185bda6d8481929a6a9b3d74b52ba27259c253b594c321e209fdee41d9660331fd3a8077f70046c28941b143a",
             "file": "projects/instant-ui-library/src/lib/root/instant-ui-library.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -110,7 +110,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ViewEncapsulation } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'iu-root',\r\n  template: `<ng-content></ng-content> `,\r\n  styleUrls: ['../styles/_global.styles.scss'],\r\n  encapsulation: ViewEncapsulation.None,\r\n})\r\nexport class InstantUiLibraryComponent {}\r\n",
+            "sourceCode": "import { Component, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'iu-root',\n  template: `<ng-content></ng-content> `,\n  styleUrls: ['../styles/_global.styles.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class InstantUiLibraryComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -172,13 +172,13 @@
         },
         {
             "name": "InstantUiLibraryModule",
-            "id": "module-InstantUiLibraryModule-8bc3750317eb4ff25a608610ef73cb6209c7e87273bf87088c34f74ccd71622370dc7af36c6cb6cfa5db551860768f2fa17f98e9ce706f82dffd762b83e07ee8",
+            "id": "module-InstantUiLibraryModule-bba1436a850ae5691b93d7ba5bf3c707eafa2a869df8049a3d9103db555c583b37092530e85fed8338aecec599c2c0dd5eac62d9adb07d64101b2a2ace1935a5",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/instant-ui-library/src/lib/root/instant-ui-library.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\r\nimport { InstantUiLibraryComponent } from './instant-ui-library.component';\r\n\r\n@NgModule({\r\n  declarations: [InstantUiLibraryComponent],\r\n  imports: [],\r\n  exports: [InstantUiLibraryComponent],\r\n})\r\nexport class InstantUiLibraryModule {}\r\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { InstantUiLibraryComponent } from './instant-ui-library.component';\n\n@NgModule({\n  declarations: [InstantUiLibraryComponent],\n  imports: [],\n  exports: [InstantUiLibraryComponent],\n})\nexport class InstantUiLibraryModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -221,7 +221,7 @@
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/instant-ui-showcase/src/test.ts",
+                "file": "projects/instant-ui-library/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -231,7 +231,7 @@
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/instant-ui-library/src/test.ts",
+                "file": "projects/instant-ui-showcase/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -245,7 +245,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\r\n  production: true,\r\n}"
+                "defaultValue": "{\n  production: true,\n}"
             },
             {
                 "name": "environment",
@@ -255,16 +255,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\r\n  production: false,\r\n}"
-            },
-            {
-                "name": "require",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/instant-ui-showcase/src/test.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "literal type"
+                "defaultValue": "{\n  production: false,\n}"
             },
             {
                 "name": "require",
@@ -274,33 +265,21 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "literal type"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/instant-ui-showcase/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
-            "projects/instant-ui-showcase/src/test.ts": [
-                {
-                    "name": "context",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/instant-ui-showcase/src/test.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-                },
-                {
-                    "name": "require",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/instant-ui-showcase/src/test.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "literal type"
-                }
-            ],
             "projects/instant-ui-library/src/test.ts": [
                 {
                     "name": "context",
@@ -322,6 +301,27 @@
                     "type": "literal type"
                 }
             ],
+            "projects/instant-ui-showcase/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/instant-ui-showcase/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/instant-ui-showcase/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
             "projects/instant-ui-showcase/src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -331,7 +331,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\r\n  production: true,\r\n}"
+                    "defaultValue": "{\n  production: true,\n}"
                 }
             ],
             "projects/instant-ui-showcase/src/environments/environment.ts": [
@@ -343,7 +343,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\r\n  production: false,\r\n}"
+                    "defaultValue": "{\n  production: false,\n}"
                 }
             ]
         },
