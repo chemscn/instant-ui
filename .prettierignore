@@ -1,0 +1,7 @@
+node_modules
+# Ignore artificats
+dist
+
+# Storybook
+.storybook
+docs
