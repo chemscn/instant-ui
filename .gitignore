@@ -43,7 +43,6 @@ Thumbs.db
 
 #storybook
 /storybook-static
-.storybook
 
 #package lock
 package-lock.json
