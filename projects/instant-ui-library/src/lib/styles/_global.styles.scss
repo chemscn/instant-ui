@@ -1,3 +1,9 @@
+@import "./variables";
+
 p {
-  color: blue;
+  color: $color--primary-50;
+}
+
+h1 {
+  color: $color--primary;
 }
