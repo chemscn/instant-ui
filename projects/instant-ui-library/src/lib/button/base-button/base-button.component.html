@@ -1,0 +1,14 @@
+<button
+  [ngClass]="[
+    'btn',
+    modeType === mode.PRIMARY ? 'btn--primary' : '',
+    modeType === mode.SECONDARY ? 'btn--secondary' : ''
+  ]"
+  [attr.aria-disabled]="disabled ? true : null"
+  [disabled]="disabled"
+  [title]="title"
+  [type]="type"
+  (click)="handleOnClick()"
+>
+  {{ text }}
+</button>

@@ -1,10 +1,10 @@
 //Principal
 $color--primary: #5a4ae3 !default;
-$color--secondary: #7f67ff !default;
+$color--secondary: #dd2dbd !default;
+// $color--secondary: #7f67ff !default;
 $color--tertiary: #a284ff !default;
 $color--fourth: #c5a3ff !default;
 $color--fifth: #e9c3ff !default;
-$color--primary-bright: #dd2dbd !default;
 $color--highlight: #ff458a !default;
 
 //Grayscale
@@ -39,9 +39,9 @@ $color--secondary-90: rgba($color--secondary, 0.9) !default;
 $color--tertiary-5: rgba($color--tertiary, 0.05) !default;
 $color--tertiary-50: rgba($color--tertiary, 0.5) !default;
 $color--tertiary-90: rgba($color--tertiary, 0.9) !default;
-$color--primary-bright-5: rgba($color--primary-bright, 0.05) !default;
-$color--primary-bright-50: rgba($color--primary-bright, 0.5) !default;
-$color--primary-bright-90: rgba($color--primary-bright, 0.9) !default;
+// $color--primary-bright-5: rgba($color--primary-bright, 0.05) !default;
+// $color--primary-bright-50: rgba($color--primary-bright, 0.5) !default;
+// $color--primary-bright-90: rgba($color--primary-bright, 0.9) !default;
 $color-highlight-5: rgba($color--highlight, 0.05) !default;
 $color-highlight-50: rgba($color--highlight, 0.5) !default;
 $color-highlight-90: rgba($color--highlight, 0.9) !default;

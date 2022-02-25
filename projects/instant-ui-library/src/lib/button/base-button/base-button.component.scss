@@ -1,0 +1,24 @@
+@import "../../styles/global.styles";
+
+.btn {
+  border-radius: 6px;
+  padding: $button--padding;
+  font-weight: 700;
+  margin: 5px 5px;
+  cursor: pointer;
+  border: none;
+
+  &.btn--primary {
+    background-color: $color--primary;
+    color: $color--white;
+  }
+
+  &.btn--secondary {
+    background-color: $color--secondary;
+    color: $color--white;
+  }
+  &:hover,
+  &:focus {
+    box-shadow: 4px 10px lightgray;
+  }
+}

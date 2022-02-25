@@ -4,6 +4,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
   selector: 'iu-root',
   template: `<ng-content></ng-content> `,
   styleUrls: ['../styles/_global.styles.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class InstantUiLibraryComponent {}
