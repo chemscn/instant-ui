@@ -3,7 +3,7 @@
 
 $transition-out: ease-in 0.1s;
 $transition-in: ease-out 0.3s;
-$box-shadow-color: none;
+
 @mixin boxShadow($color) {
   box-shadow: 0px 2px 8px $color;
   &:hover,
@@ -24,13 +24,12 @@ $box-shadow-color: none;
 }
 .btn {
   font-size: 12px;
-  border-radius: 6px;
+  border-radius: $border-radius;
   padding: $button--padding;
   font-weight: 700;
   margin: 5px 5px;
   cursor: pointer;
   border: none;
-  border-radius: 8px;
   transition: $transition-out;
   &:hover,
   &:focus {
