@@ -2,7 +2,9 @@
   [ngClass]="[
     'btn',
     modeType === mode.PRIMARY ? 'btn--primary' : '',
-    modeType === mode.SECONDARY ? 'btn--secondary' : ''
+    modeType === mode.SECONDARY ? 'btn--secondary' : '',
+    modeType === mode.TERTIARY ? 'btn--tertiary' : '',
+    modeType === mode.HIGHLIGHT ? 'btn--highlight' : ''
   ]"
   [attr.aria-disabled]="disabled ? true : null"
   [disabled]="disabled"
