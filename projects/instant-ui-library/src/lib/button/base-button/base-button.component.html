@@ -8,7 +8,8 @@
   ]"
   [attr.aria-disabled]="disabled ? true : null"
   [disabled]="disabled"
-  [title]="title"
+  [attr.aria-label]="text"
+  [title]="disabled ? 'Disabled' : title"
   [type]="type"
   (click)="handleOnClick()"
 >
