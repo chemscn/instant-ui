@@ -1,10 +1,10 @@
 import {
   Component,
-  OnInit,
   ChangeDetectionStrategy,
   Input,
   Output,
   EventEmitter,
+  OnChanges,
 } from '@angular/core';
 import { Mode, ModeType } from '../../shared/models/color.model';
 
@@ -14,18 +14,18 @@ import { Mode, ModeType } from '../../shared/models/color.model';
   styleUrls: ['./base-button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BaseButtonComponent implements OnInit {
+export class BaseButtonComponent implements OnChanges {
   constructor() {}
   @Input() text: string;
   @Input() title: string;
   @Input() type: 'submit' | 'reset' | 'button' = 'button';
-  @Input() modeType: ModeType = 'primary';
+  @Input() modeType: ModeType = Mode.PRIMARY;
   @Input() disabled: boolean = false;
   @Output() onClick: EventEmitter<null> = new EventEmitter<null>();
   mode = Mode;
 
-  ngOnInit(): void {
-    if (!this.title) {
+  ngOnChanges(): void {
+    if (!this.title || !this.text) {
       this.title = this.text;
     }
   }
