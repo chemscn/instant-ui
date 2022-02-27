@@ -3,7 +3,19 @@
 
 $transition-out: ease-in 0.1s;
 $transition-in: ease-out 0.3s;
-
+$box-shadow-color: none;
+@mixin boxShadow($color) {
+  box-shadow: 0px 2px 8px $color;
+  &:hover,
+  &:focus {
+    box-shadow: 0px 8px 15px $color;
+  }
+}
+@mixin createButton($shadow-color, $text-color) {
+  background-color: $shadow-color;
+  color: $text-color;
+  @include boxShadow($shadow-color);
+}
 .btn {
   font-size: 12px;
   border-radius: 6px;
@@ -13,73 +25,30 @@ $transition-in: ease-out 0.3s;
   cursor: pointer;
   border: none;
   border-radius: 8px;
-
+  transition: $transition-out;
+  &:hover,
+  &:focus {
+    transition: $transition-in;
+  }
+  &:focus {
+    outline: 0.1px solid $color--black;
+    outline-offset: 3px;
+    transition: $transition-in;
+  }
+  
   &.btn--primary {
-    background-color: $color--primary;
-    color: $color--white;
-    box-shadow: 0px 2px 8px $color--primary;
-    transition: $transition-out;
-    &:hover,
-    &:focus {
-      box-shadow: 0px 8px 15px $color--primary;
-      transition: $transition-in;
-    }
-
-    &:focus {
-      outline: 0.1px solid $color--black;
-      outline-offset: 3px;
-      transition: $transition-in;
-    }
+    @include createButton($color--primary, $color--white)
   }
 
   &.btn--secondary {
-    background-color: $color--secondary;
-    color: $color--white;
-    box-shadow: 0px 2px 8px $color--secondary;
-    transition: $transition-out;
-    &:hover,
-    &:focus {
-      box-shadow: 0px 8px 15px $color--secondary;
-      transition: $transition-in;
-    }
-    &:focus {
-      outline: 0.1px solid $color--black;
-      outline-offset: 3px;
-      transition: $transition-in;
-    }
+    @include createButton($color--secondary, $color--white)
   }
 
   &.btn--tertiary {
-    background-color: $color--tertiary;
-    color: $color--white;
-    box-shadow: 0px 2px 8px $color--tertiary;
-    transition: $transition-out;
-    &:hover,
-    &:focus {
-      box-shadow: 0px 8px 15px $color--tertiary;
-      transition: $transition-in;
-    }
-    &:focus {
-      outline: 0.1px solid $color--black;
-      outline-offset: 3px;
-      transition: $transition-in;
-    }
+    @include createButton($color--tertiary, $color--white)
   }
 
   &.btn--highlight {
-    background-color: $color--highlight;
-    color: $color--white;
-    box-shadow: 0px 2px 8px $color--highlight;
-    transition: $transition-out;
-    &:hover,
-    &:focus {
-      box-shadow: 0px 8px 15px $color--highlight;
-      transition: $transition-in;
-    }
-    &:focus {
-      outline: 0.1px solid $color--black;
-      outline-offset: 3px;
-      transition: $transition-in;
-    }
+    @include createButton($color--highlight, $color--white)
   }
 }
