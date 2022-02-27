@@ -15,6 +15,12 @@ $box-shadow-color: none;
   background-color: $shadow-color;
   color: $text-color;
   @include boxShadow($shadow-color);
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $color--disabled3;
+    box-shadow: none;
+    transition: none;
+  }
 }
 .btn {
   font-size: 12px;
@@ -35,20 +41,20 @@ $box-shadow-color: none;
     outline-offset: 3px;
     transition: $transition-in;
   }
-  
+
   &.btn--primary {
-    @include createButton($color--primary, $color--white)
+    @include createButton($color--primary, $color--white);
   }
 
   &.btn--secondary {
-    @include createButton($color--secondary, $color--white)
+    @include createButton($color--secondary, $color--white);
   }
 
   &.btn--tertiary {
-    @include createButton($color--tertiary, $color--white)
+    @include createButton($color--tertiary, $color--white);
   }
 
   &.btn--highlight {
-    @include createButton($color--highlight, $color--white)
+    @include createButton($color--highlight, $color--white);
   }
 }
