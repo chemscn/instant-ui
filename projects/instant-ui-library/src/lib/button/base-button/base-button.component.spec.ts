@@ -21,4 +21,21 @@ describe('BaseButtonComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('given button is clicked, onClick should emit', () => {
+    spyOn(component.onClick, 'emit');
+    const button = fixture.nativeElement.querySelector(
+      'button'
+    ) as HTMLButtonElement;
+    button.dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+    expect(component.onClick.emit).toHaveBeenCalledTimes(1);
+  });
+
+  it('given title or text is not provided, title input should equal text input', () => {
+    component.text = '';
+    component.title = 'Hello';
+    component.ngOnChanges();
+    expect(component.title).toEqual('');
+  });
 });
