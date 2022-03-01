@@ -4,17 +4,14 @@
 $transition-out: ease-in 0.1s;
 $transition-in: ease-out 0.3s;
 
-@mixin boxShadow($color) {
-  box-shadow: 0px 2px 8px $color;
-  &:hover,
-  &:focus {
-    box-shadow: 0px 8px 15px $color;
-  }
-}
 @mixin createButton($shadow-color, $text-color) {
   background-color: $shadow-color;
   color: $text-color;
-  @include boxShadow($shadow-color);
+  box-shadow: 0px 2px 5px $color--gray4;
+  &:hover,
+  &:focus {
+    box-shadow: 0px 4px 12px $color--gray4;
+  }
   &:disabled {
     cursor: not-allowed;
     background-color: $color--disabled3;
