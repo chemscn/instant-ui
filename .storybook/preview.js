@@ -18,6 +18,6 @@ export const parameters = {
     },
   },
   options: {
-    order: ["Primitives"],
+    order: ["Components"],
   },
 };
