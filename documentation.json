@@ -31,7 +31,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-97501a516726b30d0c1ff302d1116e2b91a63180e1b71e47f89a224cda885d2170d43e7dc4e1dc1086bfc798a8a4ca332a552be3928065c64b3f426d6f67ea44",
+            "id": "component-AppComponent-022535edd5d5601cce958148c6cde9a42443ccb0ee18a205a1d1c84ce693d05d2b880d013710779b5b58222a22d773abe71da6f2182e6a97ef936d8d0eae715f",
             "file": "projects/instant-ui-showcase/src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -51,6 +51,16 @@
             "outputsClass": [],
             "propertiesClass": [
                 {
+                    "name": "click",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
                     "name": "title",
                     "defaultValue": "'instant-ui-showcase'",
                     "deprecated": false,
@@ -69,23 +79,160 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'instant-ui-showcase';\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n})\nexport class AppComponent {\n  title = 'instant-ui-showcase';\n  click = () => {\n    console.log('Button');\n  };\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": ":host {\r\n  text-align: center;\r\n  justify-content: center;\r\n  display: flex;\r\n}\r\n",
                     "styleUrl": "./app.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<!-- root module <instant-ui> to leak global class styles. -->\r\n<iu-root>\r\n  <p>Hello</p>\r\n</iu-root>\r\n"
+            "templateData": "<!-- root module <instant-ui> to leak global class styles. -->\r\n<iu-root>\r\n  <h1>Instant UI</h1>\r\n  <p>Hello</p>\r\n  <iu-button text=\"Primary\" (onClick)=\"click()\"></iu-button>\r\n  <iu-button\r\n    modeType=\"secondary\"\r\n    text=\"Secondary\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-button\r\n    modeType=\"tertiary\"\r\n    text=\"Tertiary\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-button\r\n    modeType=\"highlight\"\r\n    text=\"Highlight\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-button\r\n    [disabled]=\"true\"\r\n    modeType=\"highlight\"\r\n    text=\"Highlight\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n</iu-root>\r\n"
+        },
+        {
+            "name": "BaseButtonComponent",
+            "id": "component-BaseButtonComponent-a4620baeebc50fcfdcfa5bf92c4809ce676d94c659999e91131c5e3f989bfdce5ddbbd911e6bfa9e1aaf2f3f8ede4d5367a055a470970bc27b653f3e335d7c74",
+            "file": "projects/instant-ui-library/src/lib/button/base-button/base-button.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "iu-button[onClick][text]",
+            "styleUrls": [
+                "./base-button.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./base-button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "modeType",
+                    "defaultValue": "Mode.PRIMARY",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "ModeType",
+                    "decorators": []
+                },
+                {
+                    "name": "text",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "\"submit\" | \"reset\" | \"button\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<null>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "EventEmitter<>"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "handleOnClick",
+                    "defaultValue": "() => {...}",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                },
+                {
+                    "name": "mode",
+                    "defaultValue": "Mode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnChanges",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 27,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  Component,\n  ChangeDetectionStrategy,\n  Input,\n  Output,\n  EventEmitter,\n  OnChanges,\n} from '@angular/core';\nimport { Mode, ModeType } from '../../shared/models/color.model';\n\n@Component({\n  selector: 'iu-button[onClick][text]',\n  templateUrl: './base-button.component.html',\n  styleUrls: ['./base-button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class BaseButtonComponent implements OnChanges {\n  constructor() {}\n  @Input() text: string;\n  @Input() title: string;\n  @Input() type: 'submit' | 'reset' | 'button' = 'button';\n  @Input() modeType: ModeType = Mode.PRIMARY;\n  @Input() disabled: boolean = false;\n  @Output() onClick: EventEmitter<null> = new EventEmitter<null>();\n  mode = Mode;\n\n  ngOnChanges(): void {\n    if (!this.title || !this.text) {\n      this.title = this.text;\n    }\n  }\n\n  handleOnClick = () => {\n    this.onClick.emit(null);\n  };\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"../../styles/global.styles\";\r\n@import \"../../styles/variables/constants\";\r\n\r\n$transition-out: ease-in 0.1s;\r\n$transition-in: ease-out 0.3s;\r\n\r\n@mixin createButton($shadow-color, $text-color) {\r\n  background-color: $shadow-color;\r\n  color: $text-color;\r\n  box-shadow: 0px 2px 5px $color--gray4;\r\n  &:hover,\r\n  &:focus {\r\n    box-shadow: 0px 4px 12px $color--gray4;\r\n  }\r\n  &:disabled {\r\n    cursor: not-allowed;\r\n    background-color: $color--disabled3;\r\n    box-shadow: none;\r\n    transition: none;\r\n  }\r\n}\r\n.btn {\r\n  font-size: 12px;\r\n  border-radius: $border-radius;\r\n  padding: $button--padding;\r\n  font-weight: 700;\r\n  margin: 5px 5px;\r\n  cursor: pointer;\r\n  border: none;\r\n  transition: $transition-out;\r\n  &:hover,\r\n  &:focus {\r\n    transition: $transition-in;\r\n  }\r\n  &:focus {\r\n    outline: 0.1px solid $color--black;\r\n    outline-offset: 3px;\r\n    transition: $transition-in;\r\n  }\r\n\r\n  &.btn--primary {\r\n    @include createButton($color--primary, $color--white);\r\n  }\r\n\r\n  &.btn--secondary {\r\n    @include createButton($color--secondary, $color--white);\r\n  }\r\n\r\n  &.btn--tertiary {\r\n    @include createButton($color--tertiary, $color--white);\r\n  }\r\n\r\n  &.btn--highlight {\r\n    @include createButton($color--highlight, $color--white);\r\n  }\r\n}\r\n",
+                    "styleUrl": "./base-button.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 17
+            },
+            "implements": [
+                "OnChanges"
+            ],
+            "templateData": "<button\r\n  [ngClass]=\"[\r\n    'btn',\r\n    modeType === mode.PRIMARY ? 'btn--primary' : '',\r\n    modeType === mode.SECONDARY ? 'btn--secondary' : '',\r\n    modeType === mode.TERTIARY ? 'btn--tertiary' : '',\r\n    modeType === mode.HIGHLIGHT ? 'btn--highlight' : ''\r\n  ]\"\r\n  [attr.aria-disabled]=\"disabled ? true : null\"\r\n  [disabled]=\"disabled\"\r\n  [attr.aria-label]=\"text\"\r\n  [title]=\"disabled ? 'Disabled' : title\"\r\n  [type]=\"type\"\r\n  (click)=\"handleOnClick()\"\r\n>\r\n  {{ text }}\r\n</button>\r\n"
         },
         {
             "name": "InstantUiLibraryComponent",
-            "id": "component-InstantUiLibraryComponent-d54fab971d02003ef5e7a134eefae2352750b50185bda6d8481929a6a9b3d74b52ba27259c253b594c321e209fdee41d9660331fd3a8077f70046c28941b143a",
+            "id": "component-InstantUiLibraryComponent-d89091723ec6313f839b2bf662e16fafd941e2d3fa7546256470a22d1232453633999dbe1b46cc5cd1e72dac2167eae9df7fdb8d0772ab0fac48a133ee4cb170",
             "file": "projects/instant-ui-library/src/lib/root/instant-ui-library.component.ts",
             "encapsulation": [
-                "ViewEncapsulation.None"
+                "ViewEncapsulation.ShadowDom"
             ],
             "entryComponents": [],
             "inputs": [],
@@ -110,11 +257,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'iu-root',\n  template: `<ng-content></ng-content> `,\n  styleUrls: ['../styles/_global.styles.scss'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class InstantUiLibraryComponent {}\n",
+            "sourceCode": "import { Component, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'iu-root',\n  template: `<ng-content></ng-content> `,\n  styleUrls: ['../styles/_global.styles.scss'],\n  encapsulation: ViewEncapsulation.ShadowDom,\n})\nexport class InstantUiLibraryComponent {}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "p {\r\n  color: blue;\r\n}\r\n",
+                    "data": "@import \"./variables\";\r\n",
                     "styleUrl": "../styles/_global.styles.scss"
                 }
             ],
@@ -124,13 +271,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-281767c9471c46f2465701bc33b8c86e0b1890da98f17adbcf7469131cab45e1f332731b754efb0e1a21f92b49a714a7ba7776047c031288169fa747161cdcb5",
+            "id": "module-AppModule-809b6b804cb82a51ba1d7f6674a911118ecc1a70213c9a7a7d50f4177892d9e7d4e133551e50b817aa7a3f04b2d8c5062de0ab82787b75fb40f0ac07e0cf4b3a",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/instant-ui-showcase/src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { InstantUiLibraryModule } from 'projects/instant-ui-library/src/lib/root/instant-ui-library.module';\nimport { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule, InstantUiLibraryModule],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "sourceCode": "import { InstantUiLibraryModule } from 'projects/instant-ui-library/src/lib/root/instant-ui-library.module';\nimport { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { ButtonModule } from 'projects/instant-ui-library/src/lib/button/button.module';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule, InstantUiLibraryModule, ButtonModule],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -148,6 +295,9 @@
                     "type": "imports",
                     "elements": [
                         {
+                            "name": "ButtonModule"
+                        },
+                        {
                             "name": "InstantUiLibraryModule"
                         }
                     ]
@@ -163,6 +313,90 @@
                             "name": "AppComponent"
                         }
                     ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "BaseButtonModule",
+            "id": "module-BaseButtonModule-bd3c5a87719abfb0d880602ece6aa6a236e65adb30de76cb4ae6e4946c5495b6876875c48b541811b2ad50bd1ad43567dcc76c07292400b07e4d5b9fad939151",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/instant-ui-library/src/lib/button/base-button/base-button.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BaseButtonComponent } from './base-button.component';\n\n@NgModule({\n  declarations: [BaseButtonComponent],\n  imports: [CommonModule],\n  exports: [BaseButtonComponent],\n})\nexport class BaseButtonModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "BaseButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BaseButtonComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ButtonModule",
+            "id": "module-ButtonModule-dad0aaac585d011229098339aec53d31c5b9d9814f32411edb70100cb8ffab1a74c5546a278e6b4b24b60b62b9dc912aeadca05c7cb1bc64c988bdd2c3ebc440",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/instant-ui-library/src/lib/button/button.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BaseButtonModule } from './base-button/base-button.module';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [BaseButtonModule],\n})\nexport class ButtonModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "BaseButtonModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
                 },
                 {
                     "type": "classes",
@@ -277,8 +511,56 @@
             }
         ],
         "functions": [],
-        "typealiases": [],
-        "enumerations": [],
+        "typealiases": [
+            {
+                "name": "ModeType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"primary\" | \"secondary\" | \"tertiary\" | \"highlight\"",
+                "file": "projects/instant-ui-library/src/lib/shared/models/color.model.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            }
+        ],
+        "enumerations": [
+            {
+                "name": "Mode",
+                "childs": [
+                    {
+                        "name": "PRIMARY",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "primary"
+                    },
+                    {
+                        "name": "SECONDARY",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "secondary"
+                    },
+                    {
+                        "name": "TERTIARY",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "tertiary"
+                    },
+                    {
+                        "name": "HIGHLIGHT",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "highlight"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/instant-ui-library/src/lib/shared/models/color.model.ts"
+            }
+        ],
         "groupedVariables": {
             "projects/instant-ui-library/src/test.ts": [
                 {
@@ -348,14 +630,75 @@
             ]
         },
         "groupedFunctions": {},
-        "groupedEnumerations": {},
-        "groupedTypeAliases": {}
+        "groupedEnumerations": {
+            "projects/instant-ui-library/src/lib/shared/models/color.model.ts": [
+                {
+                    "name": "Mode",
+                    "childs": [
+                        {
+                            "name": "PRIMARY",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "primary"
+                        },
+                        {
+                            "name": "SECONDARY",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "secondary"
+                        },
+                        {
+                            "name": "TERTIARY",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "tertiary"
+                        },
+                        {
+                            "name": "HIGHLIGHT",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "highlight"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/instant-ui-library/src/lib/shared/models/color.model.ts"
+                }
+            ]
+        },
+        "groupedTypeAliases": {
+            "projects/instant-ui-library/src/lib/shared/models/color.model.ts": [
+                {
+                    "name": "ModeType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"primary\" | \"secondary\" | \"tertiary\" | \"highlight\"",
+                    "file": "projects/instant-ui-library/src/lib/shared/models/color.model.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
+            ]
+        }
     },
     "routes": [],
     "coverage": {
         "count": 0,
         "status": "low",
         "files": [
+            {
+                "filePath": "projects/instant-ui-library/src/lib/button/base-button/base-button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BaseButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
             {
                 "filePath": "projects/instant-ui-library/src/lib/root/instant-ui-library.component.ts",
                 "type": "component",
@@ -400,7 +743,7 @@
                 "linktype": "component",
                 "name": "AppComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
