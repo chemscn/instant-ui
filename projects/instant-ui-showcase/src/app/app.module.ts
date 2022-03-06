@@ -4,10 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ButtonModule } from 'projects/instant-ui-library/src/lib/button/button.module';
+import { LoadingSpinnerModule } from 'projects/instant-ui-library/src/lib/loading-spinner/loading-spinner.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, InstantUiLibraryModule, ButtonModule],
+  imports: [
+    BrowserModule,
+    InstantUiLibraryModule,
+    ButtonModule,
+    LoadingSpinnerModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,27 +1,14 @@
 <!-- root module <instant-ui> to leak global class styles. -->
 <iu-root>
-  <h1>Instant UI</h1>
-  <p>Hello</p>
-  <iu-button text="Primary" (onClick)="click()"></iu-button>
   <iu-button
-    modeType="secondary"
-    text="Secondary"
-    (onClick)="click()"
-  ></iu-button>
-  <iu-button
-    modeType="tertiary"
-    text="Tertiary"
-    (onClick)="click()"
-  ></iu-button>
-  <iu-button
+    [loading]="true"
     modeType="highlight"
     text="Highlight"
     (onClick)="click()"
   ></iu-button>
-  <iu-button
-    [disabled]="true"
-    modeType="highlight"
-    text="Highlight"
-    (onClick)="click()"
-  ></iu-button>
+  <iu-loading-spinner
+    id="1"
+    variant="highlight"
+    sizeMode="xlarge"
+  ></iu-loading-spinner>
 </iu-root>

@@ -1,0 +1,367 @@
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import { componentWrapperDecorator, moduleMetadata } from "@storybook/angular";
+import { CommonModule } from "@angular/common";
+
+import { LoadingSpinnerComponent } from "projects/instant-ui-library/src/lib/loading-spinner/loading-spinner/loading-spinner.component";
+import { InstantUiLibraryComponent } from "projects/instant-ui-library/src/lib/root/instant-ui-library.component";
+import { LoadingSpinnerModule } from "projects/instant-ui-library/src/lib/loading-spinner/loading-spinner.module";
+
+## Loading Spinner
+
+Loading spinner should be used when needing to overlay and indicate an action is in progress.
+
+[Source Code](https://github.com/chemscn/instant-ui/tree/main/projects/instant-ui-library/src/lib/loading-spinner/loading-spinner)
+
+## Playground
+
+<Meta
+  title="Components/Loading Spinner"
+  parameters={{
+    layout: "centered",
+  }}
+  argTypes={{
+    id: {
+      description: "Unique identifier for component",
+      type: { required: true },
+      table: {
+        type: { summary: "string" },
+        defaultValue: { summary: "-" },
+        control: {
+          type: null,
+        },
+      },
+    },
+    variant: {
+      description: "Color variant for spinner",
+      table: {
+        type: {
+          summary: "primary | secondary | tertiary | highlight",
+        },
+        defaultValue: { summary: "primary" },
+        control: {
+          type: "text",
+        },
+      },
+    },
+    sizeMode: {
+      description: "Size used for spinner",
+      table: {
+        type: { summary: "small | medium | large | xlarge" },
+        defaultValue: { summary: "small" },
+        control: {
+          type: "text",
+        },
+      },
+    },
+  }}
+/>
+
+export const Template = (args) => ({
+  props: {
+    ...args,
+  },
+  template: `
+   <iu-loading-spinner
+   [id]="id"
+   [variant]="variant"
+   [sizeMode]="sizeMode"></iu-loading-spinner>
+  `,
+});
+
+<Canvas>
+  <Story
+    name="Playground"
+    decorators={[
+      moduleMetadata({
+        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
+        imports: [CommonModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-loading-spinner id="1"></iu-loading-spinner>`,
+        },
+      },
+      layout: "centered",
+    }}
+    args={{
+      id: "",
+      variant: "primary",
+      sizeMode: "small",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story={"Playground"} />
+
+## Variants
+
+#
+
+### Default
+
+<Canvas>
+  <Story
+    name="Default"
+    decorators={[
+      moduleMetadata({
+        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
+        imports: [CommonModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-loading-spinner id="1"></iu-loading-spinner>`,
+        },
+      },
+      layout: "centered",
+    }}
+    args={{
+      id: "",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Colors
+
+### Primary
+
+<Canvas>
+  <Story
+    name="Primary"
+    decorators={[
+      moduleMetadata({
+        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
+        imports: [CommonModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-loading-spinner variant="primary" id="1"></iu-loading-spinner>`,
+        },
+      },
+      layout: "centered",
+    }}
+    args={{
+      id: "",
+      variant: "primary",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Secondary
+
+<Canvas>
+  <Story
+    name="Secondary"
+    decorators={[
+      moduleMetadata({
+        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
+        imports: [CommonModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-loading-spinner variant="secondary" id="1"></iu-loading-spinner>`,
+        },
+      },
+      layout: "centered",
+    }}
+    args={{
+      id: "",
+      variant: "secondary",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Tertiary
+
+<Canvas>
+  <Story
+    name="Tertiary"
+    decorators={[
+      moduleMetadata({
+        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
+        imports: [CommonModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-loading-spinner variant="tertiary" id="1"></iu-loading-spinner>`,
+        },
+      },
+      layout: "centered",
+    }}
+    args={{
+      id: "",
+      variant: "tertiary",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Highlight
+
+<Canvas>
+  <Story
+    name="Highlight"
+    decorators={[
+      moduleMetadata({
+        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
+        imports: [CommonModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-loading-spinner variant="highlight" id="1"></iu-loading-spinner>`,
+        },
+      },
+      layout: "centered",
+    }}
+    args={{
+      id: "",
+      variant: "highlight",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Sizes
+
+### Small
+
+<Canvas>
+  <Story
+    name="Small"
+    decorators={[
+      moduleMetadata({
+        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
+        imports: [CommonModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-loading-spinner sizeMode="small" id="1"></iu-loading-spinner>`,
+        },
+      },
+      layout: "centered",
+    }}
+    args={{
+      id: "",
+      sizeMode: "small",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Medium
+
+<Canvas>
+  <Story
+    name="Medium"
+    decorators={[
+      moduleMetadata({
+        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
+        imports: [CommonModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-loading-spinner sizeMode="medium" id="1"></iu-loading-spinner>`,
+        },
+      },
+      layout: "centered",
+    }}
+    args={{
+      id: "",
+      sizeMode: "medium",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Large
+
+<Canvas>
+  <Story
+    name="Large"
+    decorators={[
+      moduleMetadata({
+        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
+        imports: [CommonModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-loading-spinner sizeMode="large" id="1"></iu-loading-spinner>`,
+        },
+      },
+      layout: "centered",
+    }}
+    args={{
+      id: "",
+      sizeMode: "large",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### XLarge
+
+<Canvas>
+  <Story
+    name="XLarge"
+    decorators={[
+      moduleMetadata({
+        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
+        imports: [CommonModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-loading-spinner sizeMode="xlarge" id="1"></iu-loading-spinner>`,
+        },
+      },
+      layout: "centered",
+    }}
+    args={{
+      id: "",
+      sizeMode: "xlarge",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

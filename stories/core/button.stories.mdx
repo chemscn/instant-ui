@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 
 import { BaseButtonComponent } from "projects/instant-ui-library/src/lib/button/base-button/base-button.component";
 import { InstantUiLibraryComponent } from "projects/instant-ui-library/src/lib/root/instant-ui-library.component";
+import { LoadingSpinnerModule } from "projects/instant-ui-library/src/lib/loading-spinner/loading-spinner.module";
 
 ## Button
 
@@ -64,6 +65,13 @@ Button is an extension to standard html button element
         defaultValue: { summary: "false" },
       },
     },
+    loading: {
+      description: "Button in loading state",
+      table: {
+        type: { summary: "boolean" },
+        defaultValue: { summary: "false" },
+      },
+    },
     onClick: {
       description: "Button on click event",
       type: { required: true },
@@ -87,6 +95,7 @@ export const Template = (args) => ({
    [type]="type"
    [modeType]="modeType"
    [disabled]="disabled"
+   [loading]="loading"
    (onClick)="click()"></iu-button>
   `,
 });
@@ -273,6 +282,38 @@ export const Template = (args) => ({
       type: "button",
       modeType: "primary",
       disabled: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Loading
+
+<Canvas>
+  <Story
+    name="Loading"
+    decorators={[
+      moduleMetadata({
+        declarations: [BaseButtonComponent, InstantUiLibraryComponent],
+        imports: [CommonModule, LoadingSpinnerModule],
+      }),
+      componentWrapperDecorator(InstantUiLibraryComponent),
+    ]}
+    parameters={{
+      docs: {
+        source: {
+          code: `<iu-button text="Primary" [loading]="true"  (onClick)="click()"></iu-button>`,
+        },
+      },
+    }}
+    args={{
+      text: "Primary",
+      title: "",
+      type: "button",
+      modeType: "primary",
+      disabled: false,
+      loading: true,
     }}
   >
     {Template.bind({})}

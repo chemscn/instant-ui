@@ -1,0 +1,62 @@
+@import "../../styles/global.styles";
+@import "../../styles/variables/constants";
+
+@mixin setSpinnerSize($spinner-size) {
+  width: $spinner-size;
+  height: $spinner-size;
+}
+
+@mixin setSpinnerColor($spinner-color) {
+  border-top: 3px solid $spinner-color;
+}
+.spinner {
+  border: 3px solid $color--gray1;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+
+  &.spinner-small {
+    @include setSpinnerSize(16px);
+  }
+
+  &.spinner-medium {
+    @include setSpinnerSize(32px);
+  }
+
+  &.spinner-large {
+    @include setSpinnerSize(64px);
+  }
+
+  &.spinner-xlarge {
+    @include setSpinnerSize(128px);
+  }
+
+  &.spinner-primary {
+    @include setSpinnerColor($color--primary);
+  }
+
+  &.spinner-secondary {
+    @include setSpinnerColor($color--secondary);
+  }
+
+  &.spinner-tertiary {
+    @include setSpinnerColor($color--tertiary);
+  }
+
+  &.spinner-highlight {
+    @include setSpinnerColor($color--highlight);
+  }
+
+  &.spinner-disabled {
+    @include setSpinnerSize(10px);
+    @include setSpinnerColor($color--gray4);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
