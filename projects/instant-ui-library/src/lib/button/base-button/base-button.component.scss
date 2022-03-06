@@ -54,3 +54,12 @@ $transition-in: ease-out 0.3s;
     @include createButton($color--highlight, $color--white);
   }
 }
+.loading-container {
+  display: flex;
+  align-items: center;
+  margin-right: 2px;
+}
+
+.loading-text {
+  margin-left: 5px;
+}

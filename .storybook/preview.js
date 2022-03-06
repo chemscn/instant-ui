@@ -19,5 +19,5 @@ export const parameters = {
   },
   options: {
     order: ["Components"],
-  },
+  }
 };

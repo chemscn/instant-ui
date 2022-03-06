@@ -88,11 +88,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<!-- root module <instant-ui> to leak global class styles. -->\r\n<iu-root>\r\n  <h1>Instant UI</h1>\r\n  <p>Hello</p>\r\n  <iu-button text=\"Primary\" (onClick)=\"click()\"></iu-button>\r\n  <iu-button\r\n    modeType=\"secondary\"\r\n    text=\"Secondary\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-button\r\n    modeType=\"tertiary\"\r\n    text=\"Tertiary\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-button\r\n    modeType=\"highlight\"\r\n    text=\"Highlight\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-button\r\n    [disabled]=\"true\"\r\n    modeType=\"highlight\"\r\n    text=\"Highlight\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n</iu-root>\r\n"
+            "templateData": "<!-- root module <instant-ui> to leak global class styles. -->\r\n<iu-root>\r\n  <iu-button\r\n    [loading]=\"true\"\r\n    modeType=\"highlight\"\r\n    text=\"Highlight\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-loading-spinner\r\n    id=\"1\"\r\n    variant=\"highlight\"\r\n    sizeMode=\"xlarge\"\r\n  ></iu-loading-spinner>\r\n</iu-root>\r\n"
         },
         {
             "name": "BaseButtonComponent",
-            "id": "component-BaseButtonComponent-a4620baeebc50fcfdcfa5bf92c4809ce676d94c659999e91131c5e3f989bfdce5ddbbd911e6bfa9e1aaf2f3f8ede4d5367a055a470970bc27b653f3e335d7c74",
+            "id": "component-BaseButtonComponent-266e19c117eea236ba662ef87e681b6cf4b438c499f59c8029e4674bf19ba81193e82a225902dfb8a97caacf8831be9b182506b07278b34ff0a7ba488946938d",
             "file": "projects/instant-ui-library/src/lib/button/base-button/base-button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -120,12 +120,39 @@
                     "decorators": []
                 },
                 {
+                    "name": "disabledMessage",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "loading",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
                     "name": "modeType",
                     "defaultValue": "Mode.PRIMARY",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 22,
                     "type": "ModeType",
+                    "decorators": []
+                },
+                {
+                    "name": "redirect",
+                    "defaultValue": "'www.google.com'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "string",
                     "decorators": []
                 },
                 {
@@ -160,7 +187,7 @@
                     "defaultValue": "new EventEmitter<null>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 27,
                     "type": "EventEmitter<>"
                 }
             ],
@@ -173,7 +200,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 33
+                    "line": 36
                 },
                 {
                     "name": "mode",
@@ -183,7 +210,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 25
+                    "line": 28
                 }
             ],
             "methodsClass": [
@@ -193,7 +220,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 27,
+                    "line": 30,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -205,11 +232,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  ChangeDetectionStrategy,\n  Input,\n  Output,\n  EventEmitter,\n  OnChanges,\n} from '@angular/core';\nimport { Mode, ModeType } from '../../shared/models/color.model';\n\n@Component({\n  selector: 'iu-button[onClick][text]',\n  templateUrl: './base-button.component.html',\n  styleUrls: ['./base-button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class BaseButtonComponent implements OnChanges {\n  constructor() {}\n  @Input() text: string;\n  @Input() title: string;\n  @Input() type: 'submit' | 'reset' | 'button' = 'button';\n  @Input() modeType: ModeType = Mode.PRIMARY;\n  @Input() disabled: boolean = false;\n  @Output() onClick: EventEmitter<null> = new EventEmitter<null>();\n  mode = Mode;\n\n  ngOnChanges(): void {\n    if (!this.title || !this.text) {\n      this.title = this.text;\n    }\n  }\n\n  handleOnClick = () => {\n    this.onClick.emit(null);\n  };\n}\n",
+            "sourceCode": "import {\n  Component,\n  ChangeDetectionStrategy,\n  Input,\n  Output,\n  EventEmitter,\n  OnChanges,\n} from '@angular/core';\nimport { Mode, ModeType } from '../../shared/models/color.model';\n\n@Component({\n  selector: 'iu-button[onClick][text]',\n  templateUrl: './base-button.component.html',\n  styleUrls: ['./base-button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class BaseButtonComponent implements OnChanges {\n  constructor() {}\n  @Input() text: string;\n  @Input() title: string;\n  @Input() type: 'submit' | 'reset' | 'button' = 'button';\n  @Input() modeType: ModeType = Mode.PRIMARY;\n  @Input() disabled: boolean = false;\n  @Input() disabledMessage: string = '';\n  @Input() redirect: string = 'www.google.com';\n  @Input() loading: boolean = false;\n  @Output() onClick: EventEmitter<null> = new EventEmitter<null>();\n  mode = Mode;\n\n  ngOnChanges(): void {\n    if (!this.title || !this.text) {\n      this.title = this.text;\n    }\n  }\n\n  handleOnClick = () => {\n    this.onClick.emit(null);\n  };\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../styles/global.styles\";\r\n@import \"../../styles/variables/constants\";\r\n\r\n$transition-out: ease-in 0.1s;\r\n$transition-in: ease-out 0.3s;\r\n\r\n@mixin createButton($shadow-color, $text-color) {\r\n  background-color: $shadow-color;\r\n  color: $text-color;\r\n  box-shadow: 0px 2px 5px $color--gray4;\r\n  &:hover,\r\n  &:focus {\r\n    box-shadow: 0px 4px 12px $color--gray4;\r\n  }\r\n  &:disabled {\r\n    cursor: not-allowed;\r\n    background-color: $color--disabled3;\r\n    box-shadow: none;\r\n    transition: none;\r\n  }\r\n}\r\n.btn {\r\n  font-size: 12px;\r\n  border-radius: $border-radius;\r\n  padding: $button--padding;\r\n  font-weight: 700;\r\n  margin: 5px 5px;\r\n  cursor: pointer;\r\n  border: none;\r\n  transition: $transition-out;\r\n  &:hover,\r\n  &:focus {\r\n    transition: $transition-in;\r\n  }\r\n  &:focus {\r\n    outline: 0.1px solid $color--black;\r\n    outline-offset: 3px;\r\n    transition: $transition-in;\r\n  }\r\n\r\n  &.btn--primary {\r\n    @include createButton($color--primary, $color--white);\r\n  }\r\n\r\n  &.btn--secondary {\r\n    @include createButton($color--secondary, $color--white);\r\n  }\r\n\r\n  &.btn--tertiary {\r\n    @include createButton($color--tertiary, $color--white);\r\n  }\r\n\r\n  &.btn--highlight {\r\n    @include createButton($color--highlight, $color--white);\r\n  }\r\n}\r\n",
+                    "data": "@import \"../../styles/global.styles\";\r\n@import \"../../styles/variables/constants\";\r\n\r\n$transition-out: ease-in 0.1s;\r\n$transition-in: ease-out 0.3s;\r\n\r\n@mixin createButton($shadow-color, $text-color) {\r\n  background-color: $shadow-color;\r\n  color: $text-color;\r\n  box-shadow: 0px 2px 5px $color--gray4;\r\n  &:hover,\r\n  &:focus {\r\n    box-shadow: 0px 4px 12px $color--gray4;\r\n  }\r\n  &:disabled {\r\n    cursor: not-allowed;\r\n    background-color: $color--disabled3;\r\n    box-shadow: none;\r\n    transition: none;\r\n  }\r\n}\r\n.btn {\r\n  font-size: 12px;\r\n  border-radius: $border-radius;\r\n  padding: $button--padding;\r\n  font-weight: 700;\r\n  margin: 5px 5px;\r\n  cursor: pointer;\r\n  border: none;\r\n  transition: $transition-out;\r\n  &:hover,\r\n  &:focus {\r\n    transition: $transition-in;\r\n  }\r\n  &:focus {\r\n    outline: 0.1px solid $color--black;\r\n    outline-offset: 3px;\r\n    transition: $transition-in;\r\n  }\r\n\r\n  &.btn--primary {\r\n    @include createButton($color--primary, $color--white);\r\n  }\r\n\r\n  &.btn--secondary {\r\n    @include createButton($color--secondary, $color--white);\r\n  }\r\n\r\n  &.btn--tertiary {\r\n    @include createButton($color--tertiary, $color--white);\r\n  }\r\n\r\n  &.btn--highlight {\r\n    @include createButton($color--highlight, $color--white);\r\n  }\r\n}\r\n.loading-container {\r\n  display: flex;\r\n  align-items: center;\r\n  margin-right: 2px;\r\n}\r\n\r\n.loading-text {\r\n  margin-left: 5px;\r\n}\r\n",
                     "styleUrl": "./base-button.component.scss"
                 }
             ],
@@ -225,7 +252,7 @@
             "implements": [
                 "OnChanges"
             ],
-            "templateData": "<button\r\n  [ngClass]=\"[\r\n    'btn',\r\n    modeType === mode.PRIMARY ? 'btn--primary' : '',\r\n    modeType === mode.SECONDARY ? 'btn--secondary' : '',\r\n    modeType === mode.TERTIARY ? 'btn--tertiary' : '',\r\n    modeType === mode.HIGHLIGHT ? 'btn--highlight' : ''\r\n  ]\"\r\n  [attr.aria-disabled]=\"disabled ? true : null\"\r\n  [disabled]=\"disabled\"\r\n  [attr.aria-label]=\"text\"\r\n  [title]=\"disabled ? 'Disabled' : title\"\r\n  [type]=\"type\"\r\n  (click)=\"handleOnClick()\"\r\n>\r\n  {{ text }}\r\n</button>\r\n"
+            "templateData": "<button\r\n  [ngClass]=\"[\r\n    'btn',\r\n    modeType === mode.PRIMARY ? 'btn--primary' : '',\r\n    modeType === mode.SECONDARY ? 'btn--secondary' : '',\r\n    modeType === mode.TERTIARY ? 'btn--tertiary' : '',\r\n    modeType === mode.HIGHLIGHT ? 'btn--highlight' : ''\r\n  ]\"\r\n  [attr.aria-disabled]=\"disabled ? true : null\"\r\n  [disabled]=\"disabled || loading\"\r\n  [attr.aria-label]=\"text\"\r\n  [title]=\"disabled ? 'Disabled' : title\"\r\n  [type]=\"type\"\r\n  (click)=\"handleOnClick()\"\r\n>\r\n  <ng-container *ngIf=\"loading; else notLoading\">\r\n    <div class=\"loading-container\">\r\n      <iu-loading-spinner\r\n        variant=\"disabled\"\r\n        id=\"button-loading-spinner\"\r\n      ></iu-loading-spinner>\r\n      <span class=\"loading-text\">Loading...</span>\r\n    </div>\r\n  </ng-container>\r\n  <ng-template #notLoading>{{ text }}</ng-template>\r\n</button>\r\n<p *ngIf=\"disabled && disabledMessage\">\r\n  {{ disabledMessage }}\r\n</p>\r\n"
         },
         {
             "name": "InstantUiLibraryComponent",
@@ -266,18 +293,158 @@
                 }
             ],
             "stylesData": ""
+        },
+        {
+            "name": "LoadingSpinnerComponent",
+            "id": "component-LoadingSpinnerComponent-63f58c0fb9d7a657dd650c5648f4bac3169c14dddf9b445aedadf7b7b12da9052010a0d067263c97537bb5f0e0f997e4c49365dbdf46e0fa7d6c12e7c02347cf",
+            "file": "projects/instant-ui-library/src/lib/loading-spinner/loading-spinner/loading-spinner.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "iu-loading-spinner[id]",
+            "styleUrls": [
+                "./loading-spinner.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./loading-spinner.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "id",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "sizeMode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "SizeMode",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "ModeType",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "mode",
+                    "defaultValue": "Mode",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 26
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "Size",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "spinnerColorClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "spinnerSizeClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 28,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  OnChanges,\n  SimpleChanges,\n} from '@angular/core';\nimport { ModeType } from '../../shared/models/color.model';\nimport { Size, SizeMode } from '../../shared/models/size.model';\nimport { Mode } from './../../shared/models/color.model';\n\n@Component({\n  selector: 'iu-loading-spinner[id]',\n  templateUrl: './loading-spinner.component.html',\n  styleUrls: ['./loading-spinner.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class LoadingSpinnerComponent implements OnChanges {\n  @Input() variant: ModeType;\n  @Input() sizeMode: SizeMode;\n  @Input() id: string = '';\n\n  spinnerSizeClass: string = '';\n  spinnerColorClass: string = '';\n  size = Size;\n  mode = Mode;\n\n  ngOnChanges(changes: SimpleChanges) {\n    if (changes) {\n      switch (this.sizeMode) {\n        case this.size.SMALL:\n          this.spinnerSizeClass = 'spinner-small';\n          break;\n        case this.size.MEDIUM:\n          this.spinnerSizeClass = 'spinner-medium';\n          break;\n        case this.size.LARGE:\n          this.spinnerSizeClass = 'spinner-large';\n          break;\n        case this.size.XLARGE:\n          this.spinnerSizeClass = 'spinner-xlarge';\n          break;\n        default:\n          this.spinnerSizeClass = 'spinner-small';\n          break;\n      }\n\n      switch (this.variant) {\n        case this.mode.PRIMARY:\n          this.spinnerColorClass = 'spinner-primary';\n          break;\n        case this.mode.SECONDARY:\n          this.spinnerColorClass = 'spinner-secondary';\n          break;\n        case this.mode.TERTIARY:\n          this.spinnerColorClass = 'spinner-tertiary';\n          break;\n        case this.mode.HIGHLIGHT:\n          this.spinnerColorClass = 'spinner-highlight';\n          break;\n        case this.mode.DISABLED:\n          this.spinnerColorClass = 'spinner-disabled';\n          break;\n        default:\n          this.spinnerColorClass = 'spinner-primary';\n          break;\n      }\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "@import \"../../styles/global.styles\";\r\n@import \"../../styles/variables/constants\";\r\n\r\n@mixin setSpinnerSize($spinner-size) {\r\n  width: $spinner-size;\r\n  height: $spinner-size;\r\n}\r\n\r\n@mixin setSpinnerColor($spinner-color) {\r\n  border-top: 3px solid $spinner-color;\r\n}\r\n.spinner {\r\n  border: 3px solid $color--gray1;\r\n  border-radius: 50%;\r\n  animation: spin 2s linear infinite;\r\n\r\n  &.spinner-small {\r\n    @include setSpinnerSize(16px);\r\n  }\r\n\r\n  &.spinner-medium {\r\n    @include setSpinnerSize(32px);\r\n  }\r\n\r\n  &.spinner-large {\r\n    @include setSpinnerSize(64px);\r\n  }\r\n\r\n  &.spinner-xlarge {\r\n    @include setSpinnerSize(128px);\r\n  }\r\n\r\n  &.spinner-primary {\r\n    @include setSpinnerColor($color--primary);\r\n  }\r\n\r\n  &.spinner-secondary {\r\n    @include setSpinnerColor($color--secondary);\r\n  }\r\n\r\n  &.spinner-tertiary {\r\n    @include setSpinnerColor($color--tertiary);\r\n  }\r\n\r\n  &.spinner-highlight {\r\n    @include setSpinnerColor($color--highlight);\r\n  }\r\n\r\n  &.spinner-disabled {\r\n    @include setSpinnerSize(10px);\r\n    @include setSpinnerColor($color--gray4);\r\n  }\r\n}\r\n\r\n@keyframes spin {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n",
+                    "styleUrl": "./loading-spinner.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "implements": [
+                "OnChanges"
+            ],
+            "templateData": "<div\n  id=\"spinner-{{ id }}\"\n  [ngClass]=\"['spinner', spinnerSizeClass, spinnerColorClass]\"\n></div>\n"
         }
     ],
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-809b6b804cb82a51ba1d7f6674a911118ecc1a70213c9a7a7d50f4177892d9e7d4e133551e50b817aa7a3f04b2d8c5062de0ab82787b75fb40f0ac07e0cf4b3a",
+            "id": "module-AppModule-ac76fb2e53aa16a131eda94caaa0c18b33204d0366503ed736570b7c8c83a32e5e093dc773bb12de48abb8dbb4091c88d228a765a581a0829bac4267348c73ea",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/instant-ui-showcase/src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { InstantUiLibraryModule } from 'projects/instant-ui-library/src/lib/root/instant-ui-library.module';\nimport { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { ButtonModule } from 'projects/instant-ui-library/src/lib/button/button.module';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule, InstantUiLibraryModule, ButtonModule],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "sourceCode": "import { InstantUiLibraryModule } from 'projects/instant-ui-library/src/lib/root/instant-ui-library.module';\nimport { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { ButtonModule } from 'projects/instant-ui-library/src/lib/button/button.module';\nimport { LoadingSpinnerModule } from 'projects/instant-ui-library/src/lib/loading-spinner/loading-spinner.module';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [\n    BrowserModule,\n    InstantUiLibraryModule,\n    ButtonModule,\n    LoadingSpinnerModule,\n  ],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -299,6 +466,9 @@
                         },
                         {
                             "name": "InstantUiLibraryModule"
+                        },
+                        {
+                            "name": "LoadingSpinnerModule"
                         }
                     ]
                 },
@@ -322,13 +492,13 @@
         },
         {
             "name": "BaseButtonModule",
-            "id": "module-BaseButtonModule-bd3c5a87719abfb0d880602ece6aa6a236e65adb30de76cb4ae6e4946c5495b6876875c48b541811b2ad50bd1ad43567dcc76c07292400b07e4d5b9fad939151",
+            "id": "module-BaseButtonModule-cf9c9519415a57f69ef9b2fad21c6b07c3fe376b2686f32028afc05a5a7fcbcc169a2ba2d2a94d52b8c862ab7676d73f5784c536bbc7ef51d9d0f1aa03a56425",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/instant-ui-library/src/lib/button/base-button/base-button.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BaseButtonComponent } from './base-button.component';\n\n@NgModule({\n  declarations: [BaseButtonComponent],\n  imports: [CommonModule],\n  exports: [BaseButtonComponent],\n})\nexport class BaseButtonModule {}\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BaseButtonComponent } from './base-button.component';\nimport { LoadingSpinnerModule } from '../../loading-spinner/loading-spinner.module';\n\n@NgModule({\n  declarations: [BaseButtonComponent],\n  imports: [CommonModule, LoadingSpinnerModule],\n  exports: [BaseButtonComponent],\n})\nexport class BaseButtonModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -344,7 +514,11 @@
                 },
                 {
                     "type": "imports",
-                    "elements": []
+                    "elements": [
+                        {
+                            "name": "LoadingSpinnerModule"
+                        }
+                    ]
                 },
                 {
                     "type": "exports",
@@ -447,6 +621,50 @@
                     "elements": []
                 }
             ]
+        },
+        {
+            "name": "LoadingSpinnerModule",
+            "id": "module-LoadingSpinnerModule-25420516a31838d97c32ef7528b34ce5ac5dbf8fef779bc2d428e1b2d863b2720ed607a3ea38bdc9a01c2ee403ff5c643c86779a5602a52a870f6b5191beddb1",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/instant-ui-library/src/lib/loading-spinner/loading-spinner.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';\n\n@NgModule({\n  declarations: [LoadingSpinnerComponent],\n  imports: [CommonModule],\n  exports: [LoadingSpinnerComponent],\n})\nexport class LoadingSpinnerModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "LoadingSpinnerComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "LoadingSpinnerComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
         }
     ],
     "miscellaneous": {
@@ -470,6 +688,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "convertPixelToRem",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/instant-ui-library/src/lib/shared/functions/pixel-converter.function.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(pixel: number): string => {\r\n  return `${(pixel * 0.0625).toFixed(4)}rem`;\r\n}"
             },
             {
                 "name": "environment",
@@ -516,8 +744,19 @@
                 "name": "ModeType",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "\"primary\" | \"secondary\" | \"tertiary\" | \"highlight\"",
+                "rawtype": "\"primary\" | \"secondary\" | \"tertiary\" | \"highlight\" | \"disabled\"",
                 "file": "projects/instant-ui-library/src/lib/shared/models/color.model.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 186
+            },
+            {
+                "name": "SizeMode",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"small\" | \"medium\" | \"large\" | \"xlarge\"",
+                "file": "projects/instant-ui-library/src/lib/shared/models/size.model.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -551,6 +790,12 @@
                         "deprecated": false,
                         "deprecationMessage": "",
                         "value": "highlight"
+                    },
+                    {
+                        "name": "DISABLED",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "disabled"
                     }
                 ],
                 "ctype": "miscellaneous",
@@ -559,6 +804,41 @@
                 "deprecationMessage": "",
                 "description": "",
                 "file": "projects/instant-ui-library/src/lib/shared/models/color.model.ts"
+            },
+            {
+                "name": "Size",
+                "childs": [
+                    {
+                        "name": "SMALL",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "small"
+                    },
+                    {
+                        "name": "MEDIUM",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "medium"
+                    },
+                    {
+                        "name": "LARGE",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "large"
+                    },
+                    {
+                        "name": "XLARGE",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "xlarge"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "projects/instant-ui-library/src/lib/shared/models/size.model.ts"
             }
         ],
         "groupedVariables": {
@@ -602,6 +882,18 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "literal type"
+                }
+            ],
+            "projects/instant-ui-library/src/lib/shared/functions/pixel-converter.function.ts": [
+                {
+                    "name": "convertPixelToRem",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/instant-ui-library/src/lib/shared/functions/pixel-converter.function.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(pixel: number): string => {\r\n  return `${(pixel * 0.0625).toFixed(4)}rem`;\r\n}"
                 }
             ],
             "projects/instant-ui-showcase/src/environments/environment.prod.ts": [
@@ -658,6 +950,12 @@
                             "deprecated": false,
                             "deprecationMessage": "",
                             "value": "highlight"
+                        },
+                        {
+                            "name": "DISABLED",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "disabled"
                         }
                     ],
                     "ctype": "miscellaneous",
@@ -667,6 +965,43 @@
                     "description": "",
                     "file": "projects/instant-ui-library/src/lib/shared/models/color.model.ts"
                 }
+            ],
+            "projects/instant-ui-library/src/lib/shared/models/size.model.ts": [
+                {
+                    "name": "Size",
+                    "childs": [
+                        {
+                            "name": "SMALL",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "small"
+                        },
+                        {
+                            "name": "MEDIUM",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "medium"
+                        },
+                        {
+                            "name": "LARGE",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "large"
+                        },
+                        {
+                            "name": "XLARGE",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "xlarge"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "projects/instant-ui-library/src/lib/shared/models/size.model.ts"
+                }
             ]
         },
         "groupedTypeAliases": {
@@ -675,8 +1010,21 @@
                     "name": "ModeType",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "\"primary\" | \"secondary\" | \"tertiary\" | \"highlight\"",
+                    "rawtype": "\"primary\" | \"secondary\" | \"tertiary\" | \"highlight\" | \"disabled\"",
                     "file": "projects/instant-ui-library/src/lib/shared/models/color.model.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 186
+                }
+            ],
+            "projects/instant-ui-library/src/lib/shared/models/size.model.ts": [
+                {
+                    "name": "SizeMode",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"small\" | \"medium\" | \"large\" | \"xlarge\"",
+                    "file": "projects/instant-ui-library/src/lib/shared/models/size.model.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -696,7 +1044,16 @@
                 "linktype": "component",
                 "name": "BaseButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/14",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/instant-ui-library/src/lib/loading-spinner/loading-spinner/loading-spinner.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoadingSpinnerComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -715,6 +1072,16 @@
                 "name": "InstantUiLibraryService",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/instant-ui-library/src/lib/shared/functions/pixel-converter.function.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "convertPixelToRem",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {

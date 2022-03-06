@@ -7,11 +7,23 @@
     modeType === mode.HIGHLIGHT ? 'btn--highlight' : ''
   ]"
   [attr.aria-disabled]="disabled ? true : null"
-  [disabled]="disabled"
+  [disabled]="disabled || loading"
   [attr.aria-label]="text"
   [title]="disabled ? 'Disabled' : title"
   [type]="type"
   (click)="handleOnClick()"
 >
-  {{ text }}
+  <ng-container *ngIf="loading; else notLoading">
+    <div class="loading-container">
+      <iu-loading-spinner
+        variant="disabled"
+        id="button-loading-spinner"
+      ></iu-loading-spinner>
+      <span class="loading-text">Loading...</span>
+    </div>
+  </ng-container>
+  <ng-template #notLoading>{{ text }}</ng-template>
 </button>
+<p *ngIf="disabled && disabledMessage">
+  {{ disabledMessage }}
+</p>
