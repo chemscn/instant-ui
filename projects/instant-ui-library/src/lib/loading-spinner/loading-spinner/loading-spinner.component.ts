@@ -3,6 +3,7 @@ import {
   Component,
   Input,
   OnChanges,
+  SimpleChange,
   SimpleChanges,
 } from '@angular/core';
 import { ModeType } from '../../shared/models/color.model';
@@ -26,45 +27,12 @@ export class LoadingSpinnerComponent implements OnChanges {
   mode = Mode;
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes) {
-      switch (this.sizeMode) {
-        case this.size.SMALL:
-          this.spinnerSizeClass = 'spinner-small';
-          break;
-        case this.size.MEDIUM:
-          this.spinnerSizeClass = 'spinner-medium';
-          break;
-        case this.size.LARGE:
-          this.spinnerSizeClass = 'spinner-large';
-          break;
-        case this.size.XLARGE:
-          this.spinnerSizeClass = 'spinner-xlarge';
-          break;
-        default:
-          this.spinnerSizeClass = 'spinner-small';
-          break;
-      }
+    if (changes['variant']) {
+      this.variant = changes['variant'].currentValue;
+    }
 
-      switch (this.variant) {
-        case this.mode.PRIMARY:
-          this.spinnerColorClass = 'spinner-primary';
-          break;
-        case this.mode.SECONDARY:
-          this.spinnerColorClass = 'spinner-secondary';
-          break;
-        case this.mode.TERTIARY:
-          this.spinnerColorClass = 'spinner-tertiary';
-          break;
-        case this.mode.HIGHLIGHT:
-          this.spinnerColorClass = 'spinner-highlight';
-          break;
-        case this.mode.DISABLED:
-          this.spinnerColorClass = 'spinner-disabled';
-          break;
-        default:
-          this.spinnerColorClass = 'spinner-primary';
-          break;
-      }
+    if (changes['sizeMode']) {
+      this.sizeMode = changes['sizeMode'].currentValue;
     }
   }
 }

@@ -1,4 +1,17 @@
 <div
   id="spinner-{{ id }}"
-  [ngClass]="['spinner', spinnerSizeClass, spinnerColorClass]"
+  [ngClass]="[
+    'spinner',
+    sizeMode === size.SMALL ? 'spinner-small' : '',
+    sizeMode === size.MEDIUM ? 'spinner-medium' : '',
+    sizeMode === size.LARGE ? 'spinner-large' : '',
+    sizeMode === size.XLARGE ? 'spinner-xlarge' : '',
+    !sizeMode ? 'spinner-small' : '',
+    variant === mode.PRIMARY ? 'spinner-primary' : '',
+    variant === mode.SECONDARY ? 'spinner-secondary' : '',
+    variant === mode.TERTIARY ? 'spinner-tertiary' : '',
+    variant === mode.HIGHLIGHT ? 'spinner-highlight' : '',
+    variant === mode.DISABLED ? 'spinner-disabled' : '',
+    !variant ? 'spinner-primary' : ''
+  ]"
 ></div>
