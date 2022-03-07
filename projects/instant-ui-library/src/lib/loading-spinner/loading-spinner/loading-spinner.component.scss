@@ -14,39 +14,39 @@
   border-radius: 50%;
   animation: spin 2s linear infinite;
 
-  &.spinner-small {
+  &.spinner--small {
     @include setSpinnerSize(16px);
   }
 
-  &.spinner-medium {
+  &.spinner--medium {
     @include setSpinnerSize(32px);
   }
 
-  &.spinner-large {
+  &.spinner--large {
     @include setSpinnerSize(64px);
   }
 
-  &.spinner-xlarge {
+  &.spinner--xlarge {
     @include setSpinnerSize(128px);
   }
 
-  &.spinner-primary {
+  &.spinner--primary {
     @include setSpinnerColor($color--primary);
   }
 
-  &.spinner-secondary {
+  &.spinner--secondary {
     @include setSpinnerColor($color--secondary);
   }
 
-  &.spinner-tertiary {
+  &.spinner--tertiary {
     @include setSpinnerColor($color--tertiary);
   }
 
-  &.spinner-highlight {
+  &.spinner--highlight {
     @include setSpinnerColor($color--highlight);
   }
 
-  &.spinner-disabled {
+  &.spinner--disabled {
     @include setSpinnerSize(10px);
     @include setSpinnerColor($color--gray4);
   }

@@ -1,17 +1,15 @@
 <div
   id="spinner-{{ id }}"
-  [ngClass]="[
-    'spinner',
-    sizeMode === size.SMALL ? 'spinner-small' : '',
-    sizeMode === size.MEDIUM ? 'spinner-medium' : '',
-    sizeMode === size.LARGE ? 'spinner-large' : '',
-    sizeMode === size.XLARGE ? 'spinner-xlarge' : '',
-    !sizeMode ? 'spinner-small' : '',
-    variant === mode.PRIMARY ? 'spinner-primary' : '',
-    variant === mode.SECONDARY ? 'spinner-secondary' : '',
-    variant === mode.TERTIARY ? 'spinner-tertiary' : '',
-    variant === mode.HIGHLIGHT ? 'spinner-highlight' : '',
-    variant === mode.DISABLED ? 'spinner-disabled' : '',
-    !variant ? 'spinner-primary' : ''
-  ]"
+  class="spinner"
+  [ngClass]="{
+    'spinner--small': !sizeMode || sizeMode === size.SMALL,
+    'spinner--medium': sizeMode === size.MEDIUM,
+    'spinner--large': sizeMode === size.LARGE,
+    'spinner--xlarge': sizeMode === size.XLARGE,
+    'spinner--primary': !variant || variant === mode.PRIMARY,
+    'spinner--secondary': variant === mode.SECONDARY,
+    'spinner--tertiary': variant === mode.TERTIARY,
+    'spinner--highlight': variant === mode.HIGHLIGHT,
+    'spinner--disabled': variant === mode.DISABLED
+  }"
 ></div>
