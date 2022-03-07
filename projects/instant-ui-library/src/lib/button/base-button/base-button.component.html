@@ -1,11 +1,11 @@
 <button
-  [ngClass]="[
-    'btn',
-    modeType === mode.PRIMARY ? 'btn--primary' : '',
-    modeType === mode.SECONDARY ? 'btn--secondary' : '',
-    modeType === mode.TERTIARY ? 'btn--tertiary' : '',
-    modeType === mode.HIGHLIGHT ? 'btn--highlight' : ''
-  ]"
+  class="btn"
+  [ngClass]="{
+    'btn--primary': modeType === mode.PRIMARY,
+    'btn--secondary': modeType === mode.SECONDARY,
+    'btn--tertiary': modeType === mode.TERTIARY,
+    'btn--highlight': modeType === mode.HIGHLIGHT
+  }"
   [attr.aria-disabled]="disabled ? true : null"
   [disabled]="disabled || loading"
   [attr.aria-label]="text"
