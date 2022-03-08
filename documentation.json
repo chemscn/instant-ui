@@ -88,11 +88,11 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<!-- root module <instant-ui> to leak global class styles. -->\r\n<iu-root>\r\n  <iu-button\r\n    [loading]=\"true\"\r\n    modeType=\"highlight\"\r\n    text=\"Highlight\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-loading-spinner sizeMode=\"xlarge\" id=\"1\"></iu-loading-spinner>\r\n</iu-root>\r\n"
+            "templateData": "<!-- root module <instant-ui> to leak global class styles. -->\r\n<iu-root>\r\n  <iu-button\r\n    [loading]=\"true\"\r\n    modeType=\"highlight\"\r\n    text=\"Highlight\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-loading-spinner\r\n    variant=\"highlight\"\r\n    sizeMode=\"xlarge\"\r\n    id=\"1\"\r\n  ></iu-loading-spinner>\r\n</iu-root>\r\n"
         },
         {
             "name": "BaseButtonComponent",
-            "id": "component-BaseButtonComponent-266e19c117eea236ba662ef87e681b6cf4b438c499f59c8029e4674bf19ba81193e82a225902dfb8a97caacf8831be9b182506b07278b34ff0a7ba488946938d",
+            "id": "component-BaseButtonComponent-2437c897d5cd6869511111f4932b0791724ce9e76851e8b7445438e8a5b5f06db98ff81cb73e66db499a6d7b718923977eb2d7d3fffdaf2feea879e01f675fb8",
             "file": "projects/instant-ui-library/src/lib/button/base-button/base-button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -138,17 +138,8 @@
                     "decorators": []
                 },
                 {
-                    "name": "modeType",
-                    "defaultValue": "Mode.PRIMARY",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 22,
-                    "type": "ModeType",
-                    "decorators": []
-                },
-                {
                     "name": "redirect",
-                    "defaultValue": "'www.google.com'",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 25,
@@ -178,6 +169,15 @@
                     "deprecationMessage": "",
                     "line": 21,
                     "type": "\"submit\" | \"reset\" | \"button\"",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "Mode.PRIMARY",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "ModeType",
                     "decorators": []
                 }
             ],
@@ -232,7 +232,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  ChangeDetectionStrategy,\n  Input,\n  Output,\n  EventEmitter,\n  OnChanges,\n} from '@angular/core';\nimport { Mode, ModeType } from '../../shared/models/color.model';\n\n@Component({\n  selector: 'iu-button[onClick][text]',\n  templateUrl: './base-button.component.html',\n  styleUrls: ['./base-button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class BaseButtonComponent implements OnChanges {\n  constructor() {}\n  @Input() text: string;\n  @Input() title: string;\n  @Input() type: 'submit' | 'reset' | 'button' = 'button';\n  @Input() modeType: ModeType = Mode.PRIMARY;\n  @Input() disabled: boolean = false;\n  @Input() disabledMessage: string = '';\n  @Input() redirect: string = 'www.google.com';\n  @Input() loading: boolean = false;\n  @Output() onClick: EventEmitter<null> = new EventEmitter<null>();\n  mode = Mode;\n\n  ngOnChanges(): void {\n    if (!this.title || !this.text) {\n      this.title = this.text;\n    }\n  }\n\n  handleOnClick = () => {\n    this.onClick.emit(null);\n  };\n}\n",
+            "sourceCode": "import {\n  Component,\n  ChangeDetectionStrategy,\n  Input,\n  Output,\n  EventEmitter,\n  OnChanges,\n} from '@angular/core';\nimport { Mode, ModeType } from '../../shared/models/color.model';\n\n@Component({\n  selector: 'iu-button[onClick][text]',\n  templateUrl: './base-button.component.html',\n  styleUrls: ['./base-button.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class BaseButtonComponent implements OnChanges {\n  constructor() {}\n  @Input() text: string;\n  @Input() title: string;\n  @Input() type: 'submit' | 'reset' | 'button' = 'button';\n  @Input() variant: ModeType = Mode.PRIMARY;\n  @Input() disabled: boolean = false;\n  @Input() disabledMessage: string = '';\n  @Input() redirect: string = '';\n  @Input() loading: boolean = false;\n  @Output() onClick: EventEmitter<null> = new EventEmitter<null>();\n  mode = Mode;\n\n  ngOnChanges(): void {\n    if (!this.title || !this.text) {\n      this.title = this.text;\n    }\n  }\n\n  handleOnClick = () => {\n    this.onClick.emit(null);\n  };\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -252,7 +252,7 @@
             "implements": [
                 "OnChanges"
             ],
-            "templateData": "<button\r\n  [ngClass]=\"[\r\n    'btn',\r\n    modeType === mode.PRIMARY ? 'btn--primary' : '',\r\n    modeType === mode.SECONDARY ? 'btn--secondary' : '',\r\n    modeType === mode.TERTIARY ? 'btn--tertiary' : '',\r\n    modeType === mode.HIGHLIGHT ? 'btn--highlight' : ''\r\n  ]\"\r\n  [attr.aria-disabled]=\"disabled ? true : null\"\r\n  [disabled]=\"disabled || loading\"\r\n  [attr.aria-label]=\"text\"\r\n  [title]=\"disabled ? 'Disabled' : title\"\r\n  [type]=\"type\"\r\n  (click)=\"handleOnClick()\"\r\n>\r\n  <ng-container *ngIf=\"loading; else notLoading\">\r\n    <div class=\"loading-container\">\r\n      <iu-loading-spinner\r\n        variant=\"disabled\"\r\n        id=\"button-loading-spinner\"\r\n      ></iu-loading-spinner>\r\n      <span class=\"loading-text\">Loading...</span>\r\n    </div>\r\n  </ng-container>\r\n  <ng-template #notLoading>{{ text }}</ng-template>\r\n</button>\r\n<p *ngIf=\"disabled && disabledMessage\">\r\n  {{ disabledMessage }}\r\n</p>\r\n"
+            "templateData": "<button\r\n  class=\"btn\"\r\n  [ngClass]=\"{\r\n    'btn--primary': variant === mode.PRIMARY,\r\n    'btn--secondary': variant === mode.SECONDARY,\r\n    'btn--tertiary': variant === mode.TERTIARY,\r\n    'btn--highlight': variant === mode.HIGHLIGHT\r\n  }\"\r\n  [attr.aria-disabled]=\"disabled ? true : null\"\r\n  [disabled]=\"disabled || loading\"\r\n  [attr.aria-label]=\"text\"\r\n  [title]=\"disabled ? 'Disabled' : title\"\r\n  [type]=\"type\"\r\n  (click)=\"handleOnClick()\"\r\n>\r\n  <ng-container *ngIf=\"loading; else notLoading\">\r\n    <div class=\"loading-container\">\r\n      <iu-loading-spinner\r\n        variant=\"disabled\"\r\n        id=\"button-loading-spinner\"\r\n      ></iu-loading-spinner>\r\n      <span class=\"loading-text\">Loading...</span>\r\n    </div>\r\n  </ng-container>\r\n  <ng-template #notLoading>{{ text }}</ng-template>\r\n</button>\r\n<p *ngIf=\"disabled && disabledMessage\">\r\n  {{ disabledMessage }}\r\n</p>\r\n"
         },
         {
             "name": "InstantUiLibraryComponent",
@@ -424,7 +424,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../styles/global.styles\";\r\n@import \"../../styles/variables/constants\";\r\n\r\n@mixin setSpinnerSize($spinner-size) {\r\n  width: $spinner-size;\r\n  height: $spinner-size;\r\n}\r\n\r\n@mixin setSpinnerColor($spinner-color) {\r\n  border-top: 3px solid $spinner-color;\r\n}\r\n.spinner {\r\n  border: 3px solid $color--gray1;\r\n  border-radius: 50%;\r\n  animation: spin 2s linear infinite;\r\n\r\n  &.spinner-small {\r\n    @include setSpinnerSize(16px);\r\n  }\r\n\r\n  &.spinner-medium {\r\n    @include setSpinnerSize(32px);\r\n  }\r\n\r\n  &.spinner-large {\r\n    @include setSpinnerSize(64px);\r\n  }\r\n\r\n  &.spinner-xlarge {\r\n    @include setSpinnerSize(128px);\r\n  }\r\n\r\n  &.spinner-primary {\r\n    @include setSpinnerColor($color--primary);\r\n  }\r\n\r\n  &.spinner-secondary {\r\n    @include setSpinnerColor($color--secondary);\r\n  }\r\n\r\n  &.spinner-tertiary {\r\n    @include setSpinnerColor($color--tertiary);\r\n  }\r\n\r\n  &.spinner-highlight {\r\n    @include setSpinnerColor($color--highlight);\r\n  }\r\n\r\n  &.spinner-disabled {\r\n    @include setSpinnerSize(10px);\r\n    @include setSpinnerColor($color--gray4);\r\n  }\r\n}\r\n\r\n@keyframes spin {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n",
+                    "data": "@import \"../../styles/global.styles\";\r\n@import \"../../styles/variables/constants\";\r\n\r\n@mixin setSpinnerSize($spinner-size) {\r\n  width: $spinner-size;\r\n  height: $spinner-size;\r\n}\r\n\r\n@mixin setSpinnerColor($spinner-color) {\r\n  border-top: 3px solid $spinner-color;\r\n}\r\n.spinner {\r\n  border: 3px solid $color--gray1;\r\n  border-radius: 50%;\r\n  animation: spin 2s linear infinite;\r\n\r\n  &.spinner--small {\r\n    @include setSpinnerSize(16px);\r\n  }\r\n\r\n  &.spinner--medium {\r\n    @include setSpinnerSize(32px);\r\n  }\r\n\r\n  &.spinner--large {\r\n    @include setSpinnerSize(64px);\r\n  }\r\n\r\n  &.spinner--xlarge {\r\n    @include setSpinnerSize(128px);\r\n  }\r\n\r\n  &.spinner--primary {\r\n    @include setSpinnerColor($color--primary);\r\n  }\r\n\r\n  &.spinner--secondary {\r\n    @include setSpinnerColor($color--secondary);\r\n  }\r\n\r\n  &.spinner--tertiary {\r\n    @include setSpinnerColor($color--tertiary);\r\n  }\r\n\r\n  &.spinner--highlight {\r\n    @include setSpinnerColor($color--highlight);\r\n  }\r\n\r\n  &.spinner--disabled {\r\n    @include setSpinnerSize(10px);\r\n    @include setSpinnerColor($color--gray4);\r\n  }\r\n}\r\n\r\n@keyframes spin {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n",
                     "styleUrl": "./loading-spinner.component.scss"
                 }
             ],
@@ -432,7 +432,7 @@
             "implements": [
                 "OnChanges"
             ],
-            "templateData": "<div\n  id=\"spinner-{{ id }}\"\n  [ngClass]=\"[\n    'spinner',\n    sizeMode === size.SMALL ? 'spinner-small' : '',\n    sizeMode === size.MEDIUM ? 'spinner-medium' : '',\n    sizeMode === size.LARGE ? 'spinner-large' : '',\n    sizeMode === size.XLARGE ? 'spinner-xlarge' : '',\n    !sizeMode ? 'spinner-small' : '',\n    variant === mode.PRIMARY ? 'spinner-primary' : '',\n    variant === mode.SECONDARY ? 'spinner-secondary' : '',\n    variant === mode.TERTIARY ? 'spinner-tertiary' : '',\n    variant === mode.HIGHLIGHT ? 'spinner-highlight' : '',\n    variant === mode.DISABLED ? 'spinner-disabled' : '',\n    !variant ? 'spinner-primary' : ''\n  ]\"\n></div>\n"
+            "templateData": "<div\n  id=\"spinner-{{ id }}\"\n  class=\"spinner\"\n  [ngClass]=\"{\n    'spinner--small': !sizeMode || sizeMode === size.SMALL,\n    'spinner--medium': sizeMode === size.MEDIUM,\n    'spinner--large': sizeMode === size.LARGE,\n    'spinner--xlarge': sizeMode === size.XLARGE,\n    'spinner--primary': !variant || variant === mode.PRIMARY,\n    'spinner--secondary': variant === mode.SECONDARY,\n    'spinner--tertiary': variant === mode.TERTIARY,\n    'spinner--highlight': variant === mode.HIGHLIGHT,\n    'spinner--disabled': variant === mode.DISABLED\n  }\"\n></div>\n"
         }
     ],
     "modules": [
@@ -703,21 +703,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/instant-ui-showcase/src/environments/environment.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: false,\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "projects/instant-ui-showcase/src/environments/environment.prod.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: true,\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/instant-ui-showcase/src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false,\n}"
             },
             {
                 "name": "require",
@@ -896,18 +896,6 @@
                     "defaultValue": "(pixel: number): string => {\n  return `${(pixel * 0.0625).toFixed(4)}rem`;\n}"
                 }
             ],
-            "projects/instant-ui-showcase/src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/instant-ui-showcase/src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false,\n}"
-                }
-            ],
             "projects/instant-ui-showcase/src/environments/environment.prod.ts": [
                 {
                     "name": "environment",
@@ -918,6 +906,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: true,\n}"
+                }
+            ],
+            "projects/instant-ui-showcase/src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/instant-ui-showcase/src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false,\n}"
                 }
             ]
         },
