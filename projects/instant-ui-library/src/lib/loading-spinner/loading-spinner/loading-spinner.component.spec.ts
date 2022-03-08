@@ -39,7 +39,7 @@ describe('LoadingSpinnerComponent', () => {
       sizeMode: new SimpleChange('', '', false),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-small');
+    expect(loadingSpinner.className).toContain('spinner--small');
   });
   it('given that the spinner size is set to small, should have spinner-small class', () => {
     component.id = '1';
@@ -50,7 +50,7 @@ describe('LoadingSpinnerComponent', () => {
       sizeMode: new SimpleChange('', 'small', false),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-small');
+    expect(loadingSpinner.className).toContain('spinner--small');
   });
 
   it('given that the spinner size is set to medium, should have spinner-medium class', () => {
@@ -62,7 +62,7 @@ describe('LoadingSpinnerComponent', () => {
       sizeMode: new SimpleChange('small', component.sizeMode, true),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-medium');
+    expect(loadingSpinner.className).toContain('spinner--medium');
   });
   it('given that the spinner size is set to large, should have spinner-large class', () => {
     component.id = '1';
@@ -73,7 +73,7 @@ describe('LoadingSpinnerComponent', () => {
       sizeMode: new SimpleChange('small', component.sizeMode, true),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-large');
+    expect(loadingSpinner.className).toContain('spinner--large');
   });
   it('given that the spinner size is set to xlarge, should have spinner-xlarge class', () => {
     component.id = '1';
@@ -84,7 +84,7 @@ describe('LoadingSpinnerComponent', () => {
       sizeMode: new SimpleChange('small', component.sizeMode, true),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-xlarge');
+    expect(loadingSpinner.className).toContain('spinner--xlarge');
   });
 
   //Begin variant color testing
@@ -96,7 +96,7 @@ describe('LoadingSpinnerComponent', () => {
       changes: new SimpleChange(true, true, false),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-primary');
+    expect(loadingSpinner.className).toContain('spinner--primary');
   });
   it('given that variant is set to primary, should have spinner-primary class', () => {
     component.id = '1';
@@ -107,7 +107,7 @@ describe('LoadingSpinnerComponent', () => {
       variant: new SimpleChange('', component.variant, true),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-primary');
+    expect(loadingSpinner.className).toContain('spinner--primary');
   });
   it('given that variant is set to secondary, should have spinner-secondary class', () => {
     component.id = '1';
@@ -118,7 +118,7 @@ describe('LoadingSpinnerComponent', () => {
       changes: new SimpleChange('', component.variant, true),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-secondary');
+    expect(loadingSpinner.className).toContain('spinner--secondary');
   });
   it('given that variant is set to tertiary, should have spinner-tertiary class', () => {
     component.id = '1';
@@ -129,7 +129,7 @@ describe('LoadingSpinnerComponent', () => {
       changes: new SimpleChange('', component.variant, true),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-tertiary');
+    expect(loadingSpinner.className).toContain('spinner--tertiary');
   });
   it('given that variant is set to highlight, should have spinner-highlight class', () => {
     component.id = '1';
@@ -140,7 +140,7 @@ describe('LoadingSpinnerComponent', () => {
       changes: new SimpleChange('', component.variant, true),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-highlight');
+    expect(loadingSpinner.className).toContain('spinner--highlight');
   });
   it('given that variant is set to disabled, should have spinner-disabled class', () => {
     component.id = '1';
@@ -151,6 +151,6 @@ describe('LoadingSpinnerComponent', () => {
       changes: new SimpleChange('', component.variant, true),
     });
 
-    expect(loadingSpinner.className).toContain('spinner-disabled');
+    expect(loadingSpinner.className).toContain('spinner--disabled');
   });
 });

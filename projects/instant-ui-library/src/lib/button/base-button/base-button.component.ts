@@ -19,10 +19,10 @@ export class BaseButtonComponent implements OnChanges {
   @Input() text: string;
   @Input() title: string;
   @Input() type: 'submit' | 'reset' | 'button' = 'button';
-  @Input() modeType: ModeType = Mode.PRIMARY;
+  @Input() variant: ModeType = Mode.PRIMARY;
   @Input() disabled: boolean = false;
   @Input() disabledMessage: string = '';
-  @Input() redirect: string = 'www.google.com';
+  @Input() redirect: string = '';
   @Input() loading: boolean = false;
   @Output() onClick: EventEmitter<null> = new EventEmitter<null>();
   mode = Mode;

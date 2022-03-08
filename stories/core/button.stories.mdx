@@ -48,7 +48,7 @@ Button is an extension to standard html button element
         },
       },
     },
-    modeType: {
+    variant: {
       description: "Defines the type of button",
       table: {
         type: { summary: "primary | secondary | tertiary | highlight" },
@@ -93,7 +93,7 @@ export const Template = (args) => ({
    [text]="text"
    [title]="title"
    [type]="type"
-   [modeType]="modeType"
+   [variant]="variant"
    [disabled]="disabled"
    [loading]="loading"
    (onClick)="click()"></iu-button>
@@ -121,7 +121,7 @@ export const Template = (args) => ({
       text: "Primary",
       title: "",
       type: "button",
-      modeType: "primary",
+      variant: "primary",
       disabled: false,
     }}
   >
@@ -156,7 +156,7 @@ export const Template = (args) => ({
       text: "Primary",
       title: "",
       type: "button",
-      modeType: "primary",
+      variant: "primary",
       disabled: false,
     }}
   >
@@ -179,7 +179,7 @@ export const Template = (args) => ({
     parameters={{
       docs: {
         source: {
-          code: `<iu-button text="Secondary" modeType="secondary" (onClick)="click()"></iu-button>`,
+          code: `<iu-button text="Secondary" variant="secondary" (onClick)="click()"></iu-button>`,
         },
       },
     }}
@@ -187,7 +187,7 @@ export const Template = (args) => ({
       text: "Secondary",
       title: "",
       type: "button",
-      modeType: "secondary",
+      variant: "secondary",
       disabled: false,
     }}
   >
@@ -210,7 +210,7 @@ export const Template = (args) => ({
     parameters={{
       docs: {
         source: {
-          code: `<iu-button text="Tertiary" modeType="tertiary" (onClick)="click()"></iu-button>`,
+          code: `<iu-button text="Tertiary" variant="tertiary" (onClick)="click()"></iu-button>`,
         },
       },
     }}
@@ -218,7 +218,7 @@ export const Template = (args) => ({
       text: "Tertiary",
       title: "",
       type: "button",
-      modeType: "tertiary",
+      variant: "tertiary",
       disabled: false,
     }}
   >
@@ -241,7 +241,7 @@ export const Template = (args) => ({
     parameters={{
       docs: {
         source: {
-          code: `<iu-button text="Highlight" modeType="highlight" (onClick)="click()"></iu-button>`,
+          code: `<iu-button text="Highlight" variant="highlight" (onClick)="click()"></iu-button>`,
         },
       },
     }}
@@ -249,7 +249,7 @@ export const Template = (args) => ({
       text: "Highlight",
       title: "",
       type: "button",
-      modeType: "highlight",
+      variant: "highlight",
       disabled: false,
     }}
   >
@@ -280,7 +280,7 @@ export const Template = (args) => ({
       text: "Primary",
       title: "",
       type: "button",
-      modeType: "primary",
+      variant: "primary",
       disabled: true,
     }}
   >
@@ -311,7 +311,7 @@ export const Template = (args) => ({
       text: "Primary",
       title: "",
       type: "button",
-      modeType: "primary",
+      variant: "primary",
       disabled: false,
       loading: true,
     }}
