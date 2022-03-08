@@ -4,7 +4,7 @@ import { CommonModule } from "@angular/common";
 
 import { BaseButtonComponent } from "projects/instant-ui-library/src/lib/button/base-button/base-button.component";
 import { InstantUiLibraryComponent } from "projects/instant-ui-library/src/lib/root/instant-ui-library.component";
-import { LoadingSpinnerModule } from "projects/instant-ui-library/src/lib/loading-spinner/loading-spinner.module";
+import { LoadingSpinnerComponent } from "projects/instant-ui-library/src/lib/loading-spinner/loading-spinner/loading-spinner.component";
 
 ## Button
 
@@ -296,7 +296,7 @@ export const Template = (args) => ({
     decorators={[
       moduleMetadata({
         declarations: [BaseButtonComponent, InstantUiLibraryComponent],
-        imports: [CommonModule, LoadingSpinnerModule],
+        imports: [CommonModule],
       }),
       componentWrapperDecorator(InstantUiLibraryComponent),
     ]}

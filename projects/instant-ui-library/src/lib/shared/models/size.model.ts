@@ -1,6 +1,6 @@
-export type SizeMode = 'small' | 'medium' | 'large' | 'xlarge';
+export type Size = 'small' | 'medium' | 'large' | 'xlarge';
 
-export enum Size {
+export enum SizeMode {
   SMALL = 'small',
   MEDIUM = 'medium',
   LARGE = 'large',
