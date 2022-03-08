@@ -60,3 +60,13 @@
     transform: rotate(360deg);
   }
 }
+
+/* stylelint-disable at-rule-no-vendor-prefix */
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
