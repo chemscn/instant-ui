@@ -18,12 +18,10 @@ import { Mode } from './../../shared/models/color.model';
 })
 export class LoadingSpinnerComponent implements OnChanges {
   @Input() variant: ModeType;
-  @Input() sizeMode: SizeMode;
+  @Input() size: Size;
   @Input() id: string = '';
 
-  spinnerSizeClass: string = '';
-  spinnerColorClass: string = '';
-  size = Size;
+  sizeMode = SizeMode;
   mode = Mode;
 
   ngOnChanges(changes: SimpleChanges) {
@@ -31,8 +29,8 @@ export class LoadingSpinnerComponent implements OnChanges {
       this.variant = changes['variant'].currentValue;
     }
 
-    if (changes['sizeMode']) {
-      this.sizeMode = changes['sizeMode'].currentValue;
+    if (changes['size']) {
+      this.size = changes['size'].currentValue;
     }
   }
 }

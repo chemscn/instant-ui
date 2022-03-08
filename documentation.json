@@ -88,7 +88,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<!-- root module <instant-ui> to leak global class styles. -->\r\n<iu-root>\r\n  <iu-button\r\n    [loading]=\"true\"\r\n    modeType=\"highlight\"\r\n    text=\"Highlight\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-loading-spinner\r\n    variant=\"highlight\"\r\n    sizeMode=\"xlarge\"\r\n    id=\"1\"\r\n  ></iu-loading-spinner>\r\n</iu-root>\r\n"
+            "templateData": "<!-- root module <instant-ui> to leak global class styles. -->\r\n<iu-root>\r\n  <iu-button\r\n    [loading]=\"true\"\r\n    modeType=\"highlight\"\r\n    text=\"Highlight\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-loading-spinner\r\n    variant=\"highlight\"\r\n    size=\"xlarge\"\r\n    id=\"1\"\r\n  ></iu-loading-spinner>\r\n</iu-root>\r\n"
         },
         {
             "name": "BaseButtonComponent",
@@ -296,7 +296,7 @@
         },
         {
             "name": "LoadingSpinnerComponent",
-            "id": "component-LoadingSpinnerComponent-2ac55f1c9996b97e04e32796b3d8e322b32c16837d9825013142521787449a286541d2e6877c71d14fc14181ece470e6a96fe28c7bfe95dfea57e9dcf272faba",
+            "id": "component-LoadingSpinnerComponent-64cacd73471533bddf323e022ce772e5acdfdc4359d41e6542aef5e06b4f28c8e08a7d3754d12b33a5f88cd3bb9eadaa6f001b2e8a3d9675b4a6f6461f92d8fb",
             "file": "projects/instant-ui-library/src/lib/loading-spinner/loading-spinner/loading-spinner.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [],
@@ -324,11 +324,11 @@
                     "decorators": []
                 },
                 {
-                    "name": "sizeMode",
+                    "name": "size",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "line": 21,
-                    "type": "SizeMode",
+                    "type": "Size",
                     "decorators": []
                 },
                 {
@@ -350,34 +350,14 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 27
-                },
-                {
-                    "name": "size",
-                    "defaultValue": "Size",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "optional": false,
-                    "description": "",
-                    "line": 26
-                },
-                {
-                    "name": "spinnerColorClass",
-                    "defaultValue": "''",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "string",
-                    "optional": false,
-                    "description": "",
                     "line": 25
                 },
                 {
-                    "name": "spinnerSizeClass",
-                    "defaultValue": "''",
+                    "name": "sizeMode",
+                    "defaultValue": "SizeMode",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string",
+                    "type": "",
                     "optional": false,
                     "description": "",
                     "line": 24
@@ -397,7 +377,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 29,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -420,7 +400,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  OnChanges,\n  SimpleChange,\n  SimpleChanges,\n} from '@angular/core';\nimport { ModeType } from '../../shared/models/color.model';\nimport { Size, SizeMode } from '../../shared/models/size.model';\nimport { Mode } from './../../shared/models/color.model';\n\n@Component({\n  selector: 'iu-loading-spinner[id]',\n  templateUrl: './loading-spinner.component.html',\n  styleUrls: ['./loading-spinner.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class LoadingSpinnerComponent implements OnChanges {\n  @Input() variant: ModeType;\n  @Input() sizeMode: SizeMode;\n  @Input() id: string = '';\n\n  spinnerSizeClass: string = '';\n  spinnerColorClass: string = '';\n  size = Size;\n  mode = Mode;\n\n  ngOnChanges(changes: SimpleChanges) {\n    if (changes['variant']) {\n      this.variant = changes['variant'].currentValue;\n    }\n\n    if (changes['sizeMode']) {\n      this.sizeMode = changes['sizeMode'].currentValue;\n    }\n  }\n}\n",
+            "sourceCode": "import {\n  ChangeDetectionStrategy,\n  Component,\n  Input,\n  OnChanges,\n  SimpleChange,\n  SimpleChanges,\n} from '@angular/core';\nimport { ModeType } from '../../shared/models/color.model';\nimport { Size, SizeMode } from '../../shared/models/size.model';\nimport { Mode } from './../../shared/models/color.model';\n\n@Component({\n  selector: 'iu-loading-spinner[id]',\n  templateUrl: './loading-spinner.component.html',\n  styleUrls: ['./loading-spinner.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class LoadingSpinnerComponent implements OnChanges {\n  @Input() variant: ModeType;\n  @Input() size: Size;\n  @Input() id: string = '';\n\n  sizeMode = SizeMode;\n  mode = Mode;\n\n  ngOnChanges(changes: SimpleChanges) {\n    if (changes['variant']) {\n      this.variant = changes['variant'].currentValue;\n    }\n\n    if (changes['size']) {\n      this.sizeMode = changes['size'].currentValue;\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -432,7 +412,7 @@
             "implements": [
                 "OnChanges"
             ],
-            "templateData": "<div\n  id=\"spinner-{{ id }}\"\n  class=\"spinner\"\n  [ngClass]=\"{\n    'spinner--small': !sizeMode || sizeMode === size.SMALL,\n    'spinner--medium': sizeMode === size.MEDIUM,\n    'spinner--large': sizeMode === size.LARGE,\n    'spinner--xlarge': sizeMode === size.XLARGE,\n    'spinner--primary': !variant || variant === mode.PRIMARY,\n    'spinner--secondary': variant === mode.SECONDARY,\n    'spinner--tertiary': variant === mode.TERTIARY,\n    'spinner--highlight': variant === mode.HIGHLIGHT,\n    'spinner--disabled': variant === mode.DISABLED\n  }\"\n></div>\n"
+            "templateData": "<div\n  id=\"spinner-{{ id }}\"\n  class=\"spinner\"\n  [ngClass]=\"{\n    'spinner--small': !size || size === sizeMode.SMALL,\n    'spinner--medium': size === sizeMode.MEDIUM,\n    'spinner--large': size === sizeMode.LARGE,\n    'spinner--xlarge': size === sizeMode.XLARGE,\n    'spinner--primary': !variant || variant === mode.PRIMARY,\n    'spinner--secondary': variant === mode.SECONDARY,\n    'spinner--tertiary': variant === mode.TERTIARY,\n    'spinner--highlight': variant === mode.HIGHLIGHT,\n    'spinner--disabled': variant === mode.DISABLED\n  }\"\n></div>\n"
         }
     ],
     "modules": [
@@ -752,7 +732,7 @@
                 "kind": 186
             },
             {
-                "name": "SizeMode",
+                "name": "Size",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
                 "rawtype": "\"small\" | \"medium\" | \"large\" | \"xlarge\"",
@@ -806,7 +786,7 @@
                 "file": "projects/instant-ui-library/src/lib/shared/models/color.model.ts"
             },
             {
-                "name": "Size",
+                "name": "SizeMode",
                 "childs": [
                     {
                         "name": "SMALL",
@@ -968,7 +948,7 @@
             ],
             "projects/instant-ui-library/src/lib/shared/models/size.model.ts": [
                 {
-                    "name": "Size",
+                    "name": "SizeMode",
                     "childs": [
                         {
                             "name": "SMALL",
@@ -1020,7 +1000,7 @@
             ],
             "projects/instant-ui-library/src/lib/shared/models/size.model.ts": [
                 {
-                    "name": "SizeMode",
+                    "name": "Size",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
                     "rawtype": "\"small\" | \"medium\" | \"large\" | \"xlarge\"",
@@ -1053,7 +1033,7 @@
                 "linktype": "component",
                 "name": "LoadingSpinnerComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/7",
                 "status": "low"
             },
             {

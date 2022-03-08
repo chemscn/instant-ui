@@ -36,18 +36,18 @@ describe('LoadingSpinnerComponent', () => {
     fixture.detectChanges();
 
     component.ngOnChanges({
-      sizeMode: new SimpleChange('', '', false),
+      size: new SimpleChange('', '', false),
     });
 
     expect(loadingSpinner.className).toContain('spinner--small');
   });
   it('given that the spinner size is set to small, should have spinner-small class', () => {
     component.id = '1';
-    component.sizeMode = 'small';
+    component.size = 'small';
     fixture.detectChanges();
 
     component.ngOnChanges({
-      sizeMode: new SimpleChange('', 'small', false),
+      size: new SimpleChange('', 'small', false),
     });
 
     expect(loadingSpinner.className).toContain('spinner--small');
@@ -55,33 +55,33 @@ describe('LoadingSpinnerComponent', () => {
 
   it('given that the spinner size is set to medium, should have spinner-medium class', () => {
     component.id = '1';
-    component.sizeMode = 'medium';
+    component.size = 'medium';
     fixture.detectChanges();
 
     component.ngOnChanges({
-      sizeMode: new SimpleChange('small', component.sizeMode, true),
+      size: new SimpleChange('small', component.size, true),
     });
 
     expect(loadingSpinner.className).toContain('spinner--medium');
   });
   it('given that the spinner size is set to large, should have spinner-large class', () => {
     component.id = '1';
-    component.sizeMode = 'large';
+    component.size = 'large';
     fixture.detectChanges();
 
     component.ngOnChanges({
-      sizeMode: new SimpleChange('small', component.sizeMode, true),
+      size: new SimpleChange('small', component.size, true),
     });
 
     expect(loadingSpinner.className).toContain('spinner--large');
   });
   it('given that the spinner size is set to xlarge, should have spinner-xlarge class', () => {
     component.id = '1';
-    component.sizeMode = 'xlarge';
+    component.size = 'xlarge';
     fixture.detectChanges();
 
     component.ngOnChanges({
-      sizeMode: new SimpleChange('small', component.sizeMode, true),
+      size: new SimpleChange('small', component.size, true),
     });
 
     expect(loadingSpinner.className).toContain('spinner--xlarge');
