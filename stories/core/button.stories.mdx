@@ -296,7 +296,7 @@ export const Template = (args) => ({
     decorators={[
       moduleMetadata({
         declarations: [BaseButtonComponent, InstantUiLibraryComponent],
-        imports: [CommonModule],
+        imports: [CommonModule, LoadingSpinnerModule],
       }),
       componentWrapperDecorator(InstantUiLibraryComponent),
     ]}
