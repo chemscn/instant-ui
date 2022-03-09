@@ -296,14 +296,14 @@ export const Template = (args) => ({
     decorators={[
       moduleMetadata({
         declarations: [BaseButtonComponent, InstantUiLibraryComponent],
-        imports: [CommonModule, LoadingSpinnerModule],
+        imports: [CommonModule],
       }),
       componentWrapperDecorator(InstantUiLibraryComponent),
     ]}
     parameters={{
       docs: {
         source: {
-          code: `<iu-button text="Primary" [loading]="true"  (onClick)="click()"></iu-button>`,
+          code: `<iu-button text="Primary" [loading]="true" (onClick)="click()"></iu-button>`,
         },
       },
     }}
