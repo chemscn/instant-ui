@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ButtonModule } from 'projects/instant-ui-library/src/lib/button/button.module';
 import { LoadingSpinnerModule } from 'projects/instant-ui-library/src/lib/loading-spinner/loading-spinner.module';
 import { TextAreaModule } from 'projects/instant-ui-library/src/lib/input/text-area/text-area.module';
+import { TextInputModule } from 'projects/instant-ui-library/src/lib/input/text-input/text-input.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { TextAreaModule } from 'projects/instant-ui-library/src/lib/input/text-a
     ButtonModule,
     LoadingSpinnerModule,
     TextAreaModule,
+    TextInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

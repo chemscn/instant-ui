@@ -1,1 +1,8 @@
-<p>text-input works!</p>
+<div class="input-container"  [ngClass]="{'hasValue': value}">
+	<input 
+		type="text"
+		[placeholder]="label"
+		[(ngModel)]="value" 
+		[value]="value"
+	/>
+</div>
