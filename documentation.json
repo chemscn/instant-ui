@@ -83,12 +83,12 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ":host {\r\n  text-align: center;\r\n  justify-content: center;\r\n  display: flex;\r\n}\r\n",
+                    "data": ":host {\n  text-align: center;\n  justify-content: center;\n  display: flex;\n}\n",
                     "styleUrl": "./app.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<!-- root module <instant-ui> to leak global class styles. -->\r\n<iu-root>\r\n  <iu-button\r\n    [loading]=\"true\"\r\n    modeType=\"highlight\"\r\n    text=\"Highlight\"\r\n    (onClick)=\"click()\"\r\n  ></iu-button>\r\n  <iu-loading-spinner\r\n    variant=\"highlight\"\r\n    size=\"xlarge\"\r\n    id=\"1\"\r\n  ></iu-loading-spinner>\r\n</iu-root>\r\n"
+            "templateData": "<iu-root>\n  <iu-text-area></iu-text-area>\n</iu-root>\n"
         },
         {
             "name": "BaseButtonComponent",
@@ -236,7 +236,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../styles/global.styles\";\r\n@import \"../../styles/variables/constants\";\r\n\r\n$transition-out: ease-in 0.1s;\r\n$transition-in: ease-out 0.3s;\r\n\r\n@mixin createButton($shadow-color, $text-color) {\r\n  background-color: $shadow-color;\r\n  color: $text-color;\r\n  box-shadow: 0px 2px 5px $color--gray4;\r\n  &:hover,\r\n  &:focus {\r\n    box-shadow: 0px 4px 12px $color--gray4;\r\n  }\r\n  &:disabled {\r\n    cursor: not-allowed;\r\n    background-color: $color--disabled3;\r\n    box-shadow: none;\r\n    transition: none;\r\n  }\r\n}\r\n.btn {\r\n  font-size: 12px;\r\n  border-radius: $border-radius;\r\n  padding: $button--padding;\r\n  font-weight: 700;\r\n  margin: 5px 5px;\r\n  cursor: pointer;\r\n  border: none;\r\n  transition: $transition-out;\r\n  &:hover,\r\n  &:focus {\r\n    transition: $transition-in;\r\n  }\r\n  &:focus {\r\n    outline: 0.1px solid $color--black;\r\n    outline-offset: 3px;\r\n    transition: $transition-in;\r\n  }\r\n\r\n  &.btn--primary {\r\n    @include createButton($color--primary, $color--white);\r\n  }\r\n\r\n  &.btn--secondary {\r\n    @include createButton($color--secondary, $color--white);\r\n  }\r\n\r\n  &.btn--tertiary {\r\n    @include createButton($color--tertiary, $color--white);\r\n  }\r\n\r\n  &.btn--highlight {\r\n    @include createButton($color--highlight, $color--white);\r\n  }\r\n}\r\n.loading-container {\r\n  display: flex;\r\n  align-items: center;\r\n  margin-right: 2px;\r\n}\r\n\r\n.loading-text {\r\n  margin-left: 5px;\r\n}\r\n",
+                    "data": "@import \"../../styles/global.styles\";\n@import \"../../styles/variables/constants\";\n\n$transition-out: ease-in 0.1s;\n$transition-in: ease-out 0.3s;\n\n@mixin createButton($shadow-color, $text-color) {\n  background-color: $shadow-color;\n  color: $text-color;\n  box-shadow: 0px 2px 5px $color--gray4;\n  &:hover,\n  &:focus {\n    box-shadow: 0px 4px 12px $color--gray4;\n  }\n  &:disabled {\n    cursor: not-allowed;\n    background-color: $color--disabled3;\n    box-shadow: none;\n    transition: none;\n  }\n}\n.btn {\n  font-size: 12px;\n  border-radius: $border-radius;\n  padding: $button--padding;\n  font-weight: 700;\n  margin: 5px 5px;\n  cursor: pointer;\n  border: none;\n  transition: $transition-out;\n  &:hover,\n  &:focus {\n    transition: $transition-in;\n  }\n  &:focus {\n    outline: 0.1px solid $color--black;\n    outline-offset: 3px;\n    transition: $transition-in;\n  }\n\n  &.btn--primary {\n    @include createButton($color--primary, $color--white);\n  }\n\n  &.btn--secondary {\n    @include createButton($color--secondary, $color--white);\n  }\n\n  &.btn--tertiary {\n    @include createButton($color--tertiary, $color--white);\n  }\n\n  &.btn--highlight {\n    @include createButton($color--highlight, $color--white);\n  }\n}\n.loading-container {\n  display: flex;\n  align-items: center;\n  margin-right: 2px;\n}\n\n.loading-text {\n  margin-left: 5px;\n}\n",
                     "styleUrl": "./base-button.component.scss"
                 }
             ],
@@ -252,7 +252,7 @@
             "implements": [
                 "OnChanges"
             ],
-            "templateData": "<button\r\n  class=\"btn\"\r\n  [ngClass]=\"{\r\n    'btn--primary': variant === mode.PRIMARY,\r\n    'btn--secondary': variant === mode.SECONDARY,\r\n    'btn--tertiary': variant === mode.TERTIARY,\r\n    'btn--highlight': variant === mode.HIGHLIGHT\r\n  }\"\r\n  [attr.aria-disabled]=\"disabled ? true : null\"\r\n  [disabled]=\"disabled || loading\"\r\n  [attr.aria-label]=\"text\"\r\n  [title]=\"disabled ? 'Disabled' : title\"\r\n  [type]=\"type\"\r\n  (click)=\"handleOnClick()\"\r\n>\r\n  <ng-container *ngIf=\"loading; else notLoading\">\r\n    <div class=\"loading-container\">\r\n      <iu-loading-spinner\r\n        variant=\"disabled\"\r\n        id=\"button-loading-spinner\"\r\n      ></iu-loading-spinner>\r\n      <span class=\"loading-text\">Loading...</span>\r\n    </div>\r\n  </ng-container>\r\n  <ng-template #notLoading>{{ text }}</ng-template>\r\n</button>\r\n<p *ngIf=\"disabled && disabledMessage\">\r\n  {{ disabledMessage }}\r\n</p>\r\n"
+            "templateData": "<button\n  class=\"btn\"\n  [ngClass]=\"{\n    'btn--primary': variant === mode.PRIMARY,\n    'btn--secondary': variant === mode.SECONDARY,\n    'btn--tertiary': variant === mode.TERTIARY,\n    'btn--highlight': variant === mode.HIGHLIGHT\n  }\"\n  [attr.aria-disabled]=\"disabled ? true : null\"\n  [disabled]=\"disabled || loading\"\n  [attr.aria-label]=\"text\"\n  [title]=\"disabled ? 'Disabled' : title\"\n  [type]=\"type\"\n  (click)=\"handleOnClick()\"\n>\n  <ng-container *ngIf=\"loading; else notLoading\">\n    <div class=\"loading-container\">\n      <iu-loading-spinner\n        variant=\"disabled\"\n        id=\"button-loading-spinner\"\n      ></iu-loading-spinner>\n      <span class=\"loading-text\">Loading...</span>\n    </div>\n  </ng-container>\n  <ng-template #notLoading>{{ text }}</ng-template>\n</button>\n<p *ngIf=\"disabled && disabledMessage\">\n  {{ disabledMessage }}\n</p>\n"
         },
         {
             "name": "InstantUiLibraryComponent",
@@ -288,7 +288,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"./variables\";\r\n",
+                    "data": "@import \"./variables\";\n",
                     "styleUrl": "../styles/_global.styles.scss"
                 }
             ],
@@ -404,7 +404,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "@import \"../../styles/global.styles\";\r\n@import \"../../styles/variables/constants\";\r\n\r\n@mixin setSpinnerSize($spinner-size) {\r\n  width: $spinner-size;\r\n  height: $spinner-size;\r\n}\r\n\r\n@mixin setSpinnerColor($spinner-color) {\r\n  border-top: 3px solid $spinner-color;\r\n}\r\n.spinner {\r\n  border: 3px solid $color--gray1;\r\n  border-radius: 50%;\r\n  animation: spin 2s linear infinite;\r\n\r\n  &.spinner--small {\r\n    @include setSpinnerSize(16px);\r\n  }\r\n\r\n  &.spinner--medium {\r\n    @include setSpinnerSize(32px);\r\n  }\r\n\r\n  &.spinner--large {\r\n    @include setSpinnerSize(64px);\r\n  }\r\n\r\n  &.spinner--xlarge {\r\n    @include setSpinnerSize(128px);\r\n  }\r\n\r\n  &.spinner--primary {\r\n    @include setSpinnerColor($color--primary);\r\n  }\r\n\r\n  &.spinner--secondary {\r\n    @include setSpinnerColor($color--secondary);\r\n  }\r\n\r\n  &.spinner--tertiary {\r\n    @include setSpinnerColor($color--tertiary);\r\n  }\r\n\r\n  &.spinner--highlight {\r\n    @include setSpinnerColor($color--highlight);\r\n  }\r\n\r\n  &.spinner--disabled {\r\n    @include setSpinnerSize(10px);\r\n    @include setSpinnerColor($color--gray4);\r\n  }\r\n}\r\n\r\n@keyframes spin {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n\r\n/* stylelint-disable at-rule-no-vendor-prefix */\r\n@-webkit-keyframes spin {\r\n  0% {\r\n    transform: rotate(0deg);\r\n  }\r\n  100% {\r\n    transform: rotate(360deg);\r\n  }\r\n}\r\n",
+                    "data": "@import \"../../styles/global.styles\";\n@import \"../../styles/variables/constants\";\n\n@mixin setSpinnerSize($spinner-size) {\n  width: $spinner-size;\n  height: $spinner-size;\n}\n\n@mixin setSpinnerColor($spinner-color) {\n  border-top: 3px solid $spinner-color;\n}\n.spinner {\n  border: 3px solid $color--gray1;\n  border-radius: 50%;\n  animation: spin 2s linear infinite;\n\n  &.spinner--small {\n    @include setSpinnerSize(16px);\n  }\n\n  &.spinner--medium {\n    @include setSpinnerSize(32px);\n  }\n\n  &.spinner--large {\n    @include setSpinnerSize(64px);\n  }\n\n  &.spinner--xlarge {\n    @include setSpinnerSize(128px);\n  }\n\n  &.spinner--primary {\n    @include setSpinnerColor($color--primary);\n  }\n\n  &.spinner--secondary {\n    @include setSpinnerColor($color--secondary);\n  }\n\n  &.spinner--tertiary {\n    @include setSpinnerColor($color--tertiary);\n  }\n\n  &.spinner--highlight {\n    @include setSpinnerColor($color--highlight);\n  }\n\n  &.spinner--disabled {\n    @include setSpinnerSize(10px);\n    @include setSpinnerColor($color--gray4);\n  }\n}\n\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n\n/* stylelint-disable at-rule-no-vendor-prefix */\n@-webkit-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n",
                     "styleUrl": "./loading-spinner.component.scss"
                 }
             ],
@@ -412,19 +412,82 @@
             "implements": [
                 "OnChanges"
             ],
-            "templateData": "<div\r\n  id=\"spinner-{{ id }}\"\r\n  class=\"spinner\"\r\n  [ngClass]=\"{\r\n    'spinner--small': !size || size === sizeMode.SMALL,\r\n    'spinner--medium': size === sizeMode.MEDIUM,\r\n    'spinner--large': size === sizeMode.LARGE,\r\n    'spinner--xlarge': size === sizeMode.XLARGE,\r\n    'spinner--primary': !variant || variant === mode.PRIMARY,\r\n    'spinner--secondary': variant === mode.SECONDARY,\r\n    'spinner--tertiary': variant === mode.TERTIARY,\r\n    'spinner--highlight': variant === mode.HIGHLIGHT,\r\n    'spinner--disabled': variant === mode.DISABLED\r\n  }\"\r\n></div>\r\n"
+            "templateData": "<div\n  id=\"spinner-{{ id }}\"\n  class=\"spinner\"\n  [ngClass]=\"{\n    'spinner--small': !size || size === sizeMode.SMALL,\n    'spinner--medium': size === sizeMode.MEDIUM,\n    'spinner--large': size === sizeMode.LARGE,\n    'spinner--xlarge': size === sizeMode.XLARGE,\n    'spinner--primary': !variant || variant === mode.PRIMARY,\n    'spinner--secondary': variant === mode.SECONDARY,\n    'spinner--tertiary': variant === mode.TERTIARY,\n    'spinner--highlight': variant === mode.HIGHLIGHT,\n    'spinner--disabled': variant === mode.DISABLED\n  }\"\n></div>\n"
+        },
+        {
+            "name": "TextAreaComponent",
+            "id": "component-TextAreaComponent-2c7200478ce747b9f3c487f8efb42d00b938635aa2986a04bea34a56152ef4f17b3051ae8e6ca82a146ca01b32366f13bd34355d2612ba635b8de84120ad7a6f",
+            "file": "projects/instant-ui-library/src/lib/input/text-area/text-area/text-area.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "iu-text-area",
+            "styleUrls": [
+                "./text-area.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./text-area.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';\n\n@Component({\n  selector: 'iu-text-area',\n  templateUrl: './text-area.component.html',\n  styleUrls: ['./text-area.component.scss'],\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class TextAreaComponent implements OnInit {\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./text-area.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 9
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>text-area works!</p>\n"
         }
     ],
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-ac76fb2e53aa16a131eda94caaa0c18b33204d0366503ed736570b7c8c83a32e5e093dc773bb12de48abb8dbb4091c88d228a765a581a0829bac4267348c73ea",
+            "id": "module-AppModule-c3fb483bbded1d0ede34faffc4e342e0e90e9b042f5684b48f0a113476420da13f0e5453cac167792c6d26f7512df4c3bcab2e80b930603d64b6138799dfc469",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/instant-ui-showcase/src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { InstantUiLibraryModule } from 'projects/instant-ui-library/src/lib/root/instant-ui-library.module';\nimport { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { ButtonModule } from 'projects/instant-ui-library/src/lib/button/button.module';\nimport { LoadingSpinnerModule } from 'projects/instant-ui-library/src/lib/loading-spinner/loading-spinner.module';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [\n    BrowserModule,\n    InstantUiLibraryModule,\n    ButtonModule,\n    LoadingSpinnerModule,\n  ],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
+            "sourceCode": "import { InstantUiLibraryModule } from 'projects/instant-ui-library/src/lib/root/instant-ui-library.module';\nimport { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { ButtonModule } from 'projects/instant-ui-library/src/lib/button/button.module';\nimport { LoadingSpinnerModule } from 'projects/instant-ui-library/src/lib/loading-spinner/loading-spinner.module';\nimport { TextAreaModule } from 'projects/instant-ui-library/src/lib/input/text-area/text-area.module';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [\n    BrowserModule,\n    InstantUiLibraryModule,\n    ButtonModule,\n    LoadingSpinnerModule,\n    TextAreaModule,\n  ],\n  providers: [],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n",
             "children": [
                 {
                     "type": "providers",
@@ -449,6 +512,9 @@
                         },
                         {
                             "name": "LoadingSpinnerModule"
+                        },
+                        {
+                            "name": "TextAreaModule"
                         }
                     ]
                 },
@@ -559,6 +625,46 @@
             ]
         },
         {
+            "name": "InputModule",
+            "id": "module-InputModule-0cbbb1bc35e9e042cf9c08b1f3312168293755cf83caf8c5583af1b7c4c388bf20f9f1d4cafa8db37343d21babbce9cd1b2208ecf4675f2d9bb21acb534030ff",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/instant-ui-library/src/lib/input/input.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TextAreaModule } from './text-area/text-area.module';\n\n@NgModule({\n  declarations: [],\n  imports: [CommonModule],\n  exports: [TextAreaModule],\n})\nexport class InputModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "TextAreaModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "InstantUiLibraryModule",
             "id": "module-InstantUiLibraryModule-bba1436a850ae5691b93d7ba5bf3c707eafa2a869df8049a3d9103db555c583b37092530e85fed8338aecec599c2c0dd5eac62d9adb07d64101b2a2ace1935a5",
             "description": "",
@@ -633,6 +739,50 @@
                     "elements": [
                         {
                             "name": "LoadingSpinnerComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "TextAreaModule",
+            "id": "module-TextAreaModule-4f048bb7417214b9f2ba7d3389738a392a093c18c0afc38869ba37a539801dd00a06ad7061a5705f55117e69c5270cfd4e58843efb6e99b307bdbe222eee57ba",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/instant-ui-library/src/lib/input/text-area/text-area.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { TextAreaComponent } from './text-area/text-area.component';\n\n@NgModule({\n  declarations: [TextAreaComponent],\n  imports: [CommonModule],\n  exports: [TextAreaComponent],\n})\nexport class TextAreaModule {}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "TextAreaComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "TextAreaComponent"
                         }
                     ]
                 },
@@ -1025,6 +1175,15 @@
                 "name": "BaseButtonComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/14",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/instant-ui-library/src/lib/input/text-area/text-area/text-area.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TextAreaComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
                 "status": "low"
             },
             {
