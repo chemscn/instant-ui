@@ -1,6 +1,7 @@
 @import "../../styles/global.styles";
 @import "../../styles/variables/constants";
 
+
 @mixin setSpinnerSize($spinner-size) {
   width: $spinner-size;
   height: $spinner-size;
@@ -13,22 +14,6 @@
   border: 3px solid $color--gray1;
   border-radius: 50%;
   animation: spin 2s linear infinite;
-
-  &.spinner--small {
-    @include setSpinnerSize(16px);
-  }
-
-  &.spinner--medium {
-    @include setSpinnerSize(32px);
-  }
-
-  &.spinner--large {
-    @include setSpinnerSize(64px);
-  }
-
-  &.spinner--xlarge {
-    @include setSpinnerSize(128px);
-  }
 
   &.spinner--primary {
     @include setSpinnerColor($color--primary);

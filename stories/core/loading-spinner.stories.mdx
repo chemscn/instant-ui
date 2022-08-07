@@ -17,6 +17,10 @@ Loading spinner should be used when needing to overlay and indicate an action is
   title="Components/Loading Spinner"
   parameters={{
     layout: "centered",
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+     },
   }}
   argTypes={{
     id: {
@@ -45,10 +49,10 @@ Loading spinner should be used when needing to overlay and indicate an action is
     size: {
       description: "Size used for spinner",
       table: {
-        type: { summary: "small | medium | large | xlarge" },
-        defaultValue: { summary: "small" },
+        type: { summary: "number" },
+        defaultValue: { summary: "Min size: 10 Max size: 700" },
         control: {
-          type: "text",
+          type: "number",
         },
       },
     },
@@ -88,7 +92,7 @@ export const Template = (args) => ({
     args={{
       id: "1",
       variant: "primary",
-      size: "small",
+      size: "100",
     }}
   >
     {Template.bind({})}
@@ -146,7 +150,7 @@ export const Template = (args) => ({
     parameters={{
       docs: {
         source: {
-          code: `<iu-loading-spinner variant="primary" id="1"></iu-loading-spinner>`,
+          code: `<iu-loading-spinner variant="primary" id="1" [size]="50"></iu-loading-spinner>`,
         },
       },
       layout: "centered",
@@ -154,6 +158,7 @@ export const Template = (args) => ({
     args={{
       id: "3",
       variant: "primary",
+      size: 50
     }}
   >
     {Template.bind({})}
@@ -175,7 +180,7 @@ export const Template = (args) => ({
     parameters={{
       docs: {
         source: {
-          code: `<iu-loading-spinner variant="secondary" id="1"></iu-loading-spinner>`,
+          code: `<iu-loading-spinner variant="secondary" id="1" [size]="50"></iu-loading-spinner>`,
         },
       },
       layout: "centered",
@@ -183,6 +188,7 @@ export const Template = (args) => ({
     args={{
       id: "4",
       variant: "secondary",
+      size: 50
     }}
   >
     {Template.bind({})}
@@ -204,7 +210,7 @@ export const Template = (args) => ({
     parameters={{
       docs: {
         source: {
-          code: `<iu-loading-spinner variant="tertiary" id="1"></iu-loading-spinner>`,
+          code: `<iu-loading-spinner variant="tertiary" id="1" [size]="50"></iu-loading-spinner>`,
         },
       },
       layout: "centered",
@@ -212,6 +218,7 @@ export const Template = (args) => ({
     args={{
       id: "5",
       variant: "tertiary",
+      size:50
     }}
   >
     {Template.bind({})}
@@ -233,7 +240,7 @@ export const Template = (args) => ({
     parameters={{
       docs: {
         source: {
-          code: `<iu-loading-spinner variant="highlight" id="1"></iu-loading-spinner>`,
+          code: `<iu-loading-spinner variant="highlight" id="1" [size]="50"></iu-loading-spinner>`,
         },
       },
       layout: "centered",
@@ -241,126 +248,10 @@ export const Template = (args) => ({
     args={{
       id: "6",
       variant: "highlight",
+      size: 50
     }}
   >
     {Template.bind({})}
   </Story>
 </Canvas>
 
-## Sizes
-
-### Small
-
-<Canvas>
-  <Story
-    name="Small"
-    decorators={[
-      moduleMetadata({
-        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
-        imports: [CommonModule],
-      }),
-      componentWrapperDecorator(InstantUiLibraryComponent),
-    ]}
-    parameters={{
-      docs: {
-        source: {
-          code: `<iu-loading-spinner size="small" id="1"></iu-loading-spinner>`,
-        },
-      },
-      layout: "centered",
-    }}
-    args={{
-      id: "7",
-      size: "small",
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-</Canvas>
-
-### Medium
-
-<Canvas>
-  <Story
-    name="Medium"
-    decorators={[
-      moduleMetadata({
-        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
-        imports: [CommonModule],
-      }),
-      componentWrapperDecorator(InstantUiLibraryComponent),
-    ]}
-    parameters={{
-      docs: {
-        source: {
-          code: `<iu-loading-spinner size="medium" id="1"></iu-loading-spinner>`,
-        },
-      },
-      layout: "centered",
-    }}
-    args={{
-      id: "8",
-      size: "medium",
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-</Canvas>
-
-### Large
-
-<Canvas>
-  <Story
-    name="Large"
-    decorators={[
-      moduleMetadata({
-        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
-        imports: [CommonModule],
-      }),
-      componentWrapperDecorator(InstantUiLibraryComponent),
-    ]}
-    parameters={{
-      docs: {
-        source: {
-          code: `<iu-loading-spinner size="large" id="1"></iu-loading-spinner>`,
-        },
-      },
-      layout: "centered",
-    }}
-    args={{
-      id: "9",
-      size: "large",
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-</Canvas>
-
-### XLarge
-
-<Canvas>
-  <Story
-    name="XLarge"
-    decorators={[
-      moduleMetadata({
-        declarations: [LoadingSpinnerComponent, InstantUiLibraryComponent],
-        imports: [CommonModule],
-      }),
-      componentWrapperDecorator(InstantUiLibraryComponent),
-    ]}
-    parameters={{
-      docs: {
-        source: {
-          code: `<iu-loading-spinner size="xlarge" id="1"></iu-loading-spinner>`,
-        },
-      },
-      layout: "centered",
-    }}
-    args={{
-      id: "10",
-      size: "xlarge",
-    }}
-  >
-    {Template.bind({})}
-  </Story>
-</Canvas>

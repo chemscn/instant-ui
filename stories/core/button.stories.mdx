@@ -16,6 +16,12 @@ Button is an extension to standard html button element
 
 <Meta
   title="Components/Button"
+  parameters={{
+  viewMode: 'docs',
+   previewTabs: {
+      canvas: { hidden: true }
+     },
+}}
   argTypes={{
     text: {
       description: "Text displayed within button component",
@@ -106,7 +112,7 @@ export const Template = (args) => ({
     decorators={[
       moduleMetadata({
         declarations: [BaseButtonComponent, InstantUiLibraryComponent],
-        imports: [CommonModule],
+        imports: [CommonModule, LoadingSpinnerModule],
       }),
       componentWrapperDecorator(InstantUiLibraryComponent),
     ]}
@@ -123,6 +129,7 @@ export const Template = (args) => ({
       type: "button",
       variant: "primary",
       disabled: false,
+      loading: false
     }}
   >
     {Template.bind({})}
