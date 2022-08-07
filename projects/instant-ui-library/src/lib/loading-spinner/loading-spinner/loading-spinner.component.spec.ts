@@ -30,8 +30,9 @@ describe('LoadingSpinnerComponent', () => {
     fixture.detectChanges();
     expect(component).toBeTruthy();
   });
-  //Begin sizeMode tests
-  it('given that the spinner size is not set, should have spinner-small class', () => {
+
+  //Begin size tests
+  it('given that the spinner size is not set, should have a spinner with height and width of 10px', () => {
     component.id = '1';
     fixture.detectChanges();
 
@@ -39,53 +40,25 @@ describe('LoadingSpinnerComponent', () => {
       size: new SimpleChange('', '', false),
     });
 
-    expect(loadingSpinner.className).toContain('spinner--small');
+    expect(loadingSpinner.style.height).toBe('10px');
+    expect(loadingSpinner.style.width).toBe('10px');
   });
-  it('given that the spinner size is set to small, should have spinner-small class', () => {
+  it('given that the spinner size is set to 50, should have spinner with height and width of 50px', () => {
     component.id = '1';
-    component.size = 'small';
     fixture.detectChanges();
 
     component.ngOnChanges({
-      size: new SimpleChange('', 'small', false),
+      size: new SimpleChange('', '50', true),
     });
-
-    expect(loadingSpinner.className).toContain('spinner--small');
-  });
-
-  it('given that the spinner size is set to medium, should have spinner-medium class', () => {
-    component.id = '1';
-    component.size = 'medium';
+    component.ngAfterViewInit();
     fixture.detectChanges();
 
-    component.ngOnChanges({
-      size: new SimpleChange('small', component.size, true),
-    });
-
-    expect(loadingSpinner.className).toContain('spinner--medium');
+    expect(loadingSpinner.style.height).toBe('50px');
+    expect(loadingSpinner.style.width).toBe('50px');
   });
-  it('given that the spinner size is set to large, should have spinner-large class', () => {
-    component.id = '1';
-    component.size = 'large';
-    fixture.detectChanges();
 
-    component.ngOnChanges({
-      size: new SimpleChange('small', component.size, true),
-    });
 
-    expect(loadingSpinner.className).toContain('spinner--large');
-  });
-  it('given that the spinner size is set to xlarge, should have spinner-xlarge class', () => {
-    component.id = '1';
-    component.size = 'xlarge';
-    fixture.detectChanges();
 
-    component.ngOnChanges({
-      size: new SimpleChange('small', component.size, true),
-    });
-
-    expect(loadingSpinner.className).toContain('spinner--xlarge');
-  });
 
   //Begin variant color testing
   it('given that variant is not set, should have spinner-primary class', () => {

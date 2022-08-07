@@ -1,11 +1,8 @@
 <div
+  #spinner
   id="spinner-{{ id }}"
   class="spinner"
   [ngClass]="{
-    'spinner--small': !size || size === sizeMode.SMALL,
-    'spinner--medium': size === sizeMode.MEDIUM,
-    'spinner--large': size === sizeMode.LARGE,
-    'spinner--xlarge': size === sizeMode.XLARGE,
     'spinner--primary': !variant || variant === mode.PRIMARY,
     'spinner--secondary': variant === mode.SECONDARY,
     'spinner--tertiary': variant === mode.TERTIARY,

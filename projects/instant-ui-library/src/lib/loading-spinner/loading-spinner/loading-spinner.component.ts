@@ -1,13 +1,15 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
   Input,
   OnChanges,
-  SimpleChange,
+  OnInit,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 import { ModeType } from '../../shared/models/color.model';
-import { Size, SizeMode } from '../../shared/models/size.model';
 import { Mode } from './../../shared/models/color.model';
 
 @Component({
@@ -16,13 +18,23 @@ import { Mode } from './../../shared/models/color.model';
   styleUrls: ['./loading-spinner.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoadingSpinnerComponent implements OnChanges {
+export class LoadingSpinnerComponent implements OnChanges, AfterViewInit {
   @Input() variant: ModeType;
-  @Input() size: Size;
-  @Input() id: string = '';
+  @Input() size: number;
+  @Input() id: string;
+  @ViewChild('spinner') spinner: ElementRef;
 
-  sizeMode = SizeMode;
   mode = Mode;
+
+  ngAfterViewInit(): void  {
+    const loadingSpinner = this.spinner.nativeElement as HTMLDivElement;
+    let spinnerSize = 10;
+    if(this.size >= 10 && this.size <= 700){
+      spinnerSize = this.size;
+    }
+    loadingSpinner.style.setProperty('height', `${spinnerSize}px`);
+    loadingSpinner.style.setProperty('width', `${spinnerSize}px`);
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['variant']) {
