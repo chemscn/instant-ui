@@ -1,1 +1,19 @@
-<p>text-area works!</p>
+<label class="textarea--main-label" [for]="name">{{label}}</label>
+<textarea
+#textarea
+id="textarea-{{id}}"
+[ngClass]="{
+  'textarea--primary': variant === mode.PRIMARY,
+  'textarea--secondary': variant === mode.SECONDARY,
+  'textarea--tertiary': variant === mode.TERTIARY,
+  'textarea--highlight': variant === mode.HIGHLIGHT,
+  'textarea--disabled': disabled
+}"
+[rows]="rows"
+[name]="name"
+[cols]="cols"
+[disabled]="disabled"
+[placeholder]="placeholder"
+[readonly]="readonly"
+>
+</textarea>
