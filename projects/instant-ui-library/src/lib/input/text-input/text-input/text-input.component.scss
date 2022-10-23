@@ -1,6 +1,7 @@
 @import "../../../styles/global.styles";
 // TODO move to shared input class
 .input-container {
+	cursor: text;
 	margin: 5px 5px;
 	border: solid 2px $color--gray1;
 	border-radius: 6px;

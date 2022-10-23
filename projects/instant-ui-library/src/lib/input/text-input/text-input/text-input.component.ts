@@ -5,6 +5,8 @@ import {
   Input,
   Self,
   Optional,
+  ViewChild,
+  ElementRef,
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
@@ -19,6 +21,7 @@ export class TextInputComponent implements OnInit, ControlValueAccessor {
   @Input() id: string = 'uniqueIDGeneratorGoesHere';
   @Input() helperText: string = '';
   @Input() required: boolean;
+  @ViewChild('textInput') textInput: ElementRef;
   value: string | number = '';
   onChange: Function = () => {};
   onTouch: Function = () => {};
@@ -28,6 +31,10 @@ export class TextInputComponent implements OnInit, ControlValueAccessor {
       this.control.valueAccessor = this;
     }
   }
+
+  focusOnTextField = () => {
+    this.textInput.nativeElement.focus();
+  };
 
   ngOnInit(): void {}
 
