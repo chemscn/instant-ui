@@ -25,10 +25,10 @@ export class LoadingSpinnerComponent implements OnChanges, AfterViewInit {
 
   mode = Mode;
 
-  ngAfterViewInit(): void  {
+  ngAfterViewInit(): void {
     const loadingSpinner = this.spinner.nativeElement as HTMLDivElement;
     let spinnerSize = 10;
-    if(this.size >= 10 && this.size <= 700){
+    if (this.size >= 10 && this.size <= 700) {
       spinnerSize = this.size;
     }
     loadingSpinner.style.setProperty('height', `${spinnerSize}px`);
