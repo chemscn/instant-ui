@@ -26,7 +26,6 @@ export class TextInputComponent implements OnInit, ControlValueAccessor {
   constructor(@Self() @Optional() private control: NgControl) {
     if (this.control) {
       this.control.valueAccessor = this;
-      const { errors, dirty } = this.control;
     }
   }
 
