@@ -8,7 +8,7 @@
 	color: $color--black;
 	transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 	background-color: #fbfbfb;
-	box-shadow: 0px 0px 0px $color--gray4, 0px 2px 5px $color--gray4 inset;
+	box-shadow: 0px 0px 0px $color--gray4, 0px 1px 3px $color--gray4 inset;
 	&.hasValue {
 		border-color: $color--primary;
 	}
