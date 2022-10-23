@@ -1,4 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { Mode, ModeType } from '../../../shared/models/color.model';
 
 @Component({
@@ -7,7 +15,7 @@ import { Mode, ModeType } from '../../../shared/models/color.model';
   styleUrls: ['./text-area.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TextAreaComponent implements  AfterViewInit {
+export class TextAreaComponent implements AfterViewInit {
   constructor() {}
 
   @Input() label: string;
@@ -28,7 +36,6 @@ export class TextAreaComponent implements  AfterViewInit {
 
   ngAfterViewInit(): void {
     const textarea = this.textarea.nativeElement as HTMLTextAreaElement;
-    this.autofocus ? textarea.focus(): null;
+    this.autofocus ? textarea.focus() : null;
   }
-
 }

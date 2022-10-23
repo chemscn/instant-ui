@@ -57,9 +57,6 @@ describe('LoadingSpinnerComponent', () => {
     expect(loadingSpinner.style.width).toBe('50px');
   });
 
-
-
-
   //Begin variant color testing
   it('given that variant is not set, should have spinner-primary class', () => {
     component.id = '1';

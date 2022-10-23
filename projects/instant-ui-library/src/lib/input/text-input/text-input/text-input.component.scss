@@ -1,0 +1,55 @@
+@import "../../../styles/global.styles";
+// TODO move to shared input class
+.input-container {
+	cursor: text;
+	margin: 5px 5px;
+	border: solid 2px $color--gray1;
+	border-radius: 6px;
+	padding: 10px;
+	color: $color--black;
+	transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+	background-color: #fbfbfb;
+	box-shadow: 0px 0px 0px $color--gray4, 0px 1px 3px $color--gray4 inset;
+	&.hasValue {
+		border-color: $color--primary;
+	}
+	&:hover {
+		border-color: $color--primary;
+	}
+	&:focus-within {
+		border-color: $color--primary;
+		box-shadow: 0px 2px 5px $color--gray4, 0px 2px 5px $color--gray4 inset;
+	}
+	input {
+		width: 100%;
+		background-color: #fbfbfb;
+		border: none;
+		&:focus {
+			outline: none;
+		}
+		&::selection {
+			background: $color--quaternary;
+		}
+	}
+}
+@mixin label-span-alignment() {
+	text-align: left;
+	display: block;
+}
+label {
+	@include label-span-alignment();
+	font-weight: $label-font-weight;
+	text-transform: capitalize;
+	span {
+		color: $color--secondary;
+		display: inline-block;
+	}
+}
+// TODO move to be reusuable for other form fields
+.helperText {
+	@include label-span-alignment();
+	font-size: $minimum-font-size;
+}
+.error-message {
+	color: $color--error1;
+}

@@ -1,0 +1,19 @@
+<ng-container *ngIf="label">
+	<label [for]="id">
+		{{label}}
+		<ng-container *ngIf="required">
+			<span>*</span>
+		</ng-container>
+	</label>
+	<ng-container *ngIf="helperText || required">
+		<span class="helperText">
+			{{required && !helperText ? 'Required' : helperText}}
+		</span>
+	</ng-container>
+</ng-container>
+<div class="input-container" [ngClass]="{'hasValue': value}" (click)="focusOnTextField()">
+	<input #textInput [id]="id" type="text" [(ngModel)]="value" [value]="value" />
+</div>
+<ng-container *ngIf="showError">
+	<span>{{errors[0]}}</span>
+</ng-container>
