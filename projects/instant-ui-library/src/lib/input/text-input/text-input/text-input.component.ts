@@ -3,33 +3,72 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   Input,
+  Self,
+  Optional,
 } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
-  selector: 'iu-text-input',
+  selector: 'iu-text-input[label]',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextInputComponent implements OnInit, ControlValueAccessor {
-  @Input() label: string = '';
+  @Input() label: string;
+  @Input() id: string = 'uniqueIDGeneratorGoesHere';
+  @Input() helperText: string = '';
+  @Input() required: boolean;
   value: string | number = '';
-  onChange: any = () => {};
-  onTouch: any = () => {};
-
-  constructor() {}
+  onChange: Function = () => {};
+  onTouch: Function = () => {};
+  errorMessages: Map<string, Function>;
+  constructor(@Self() @Optional() private control: NgControl) {
+    if (this.control) {
+      this.control.valueAccessor = this;
+      const { errors, dirty } = this.control;
+    }
+  }
 
   ngOnInit(): void {}
 
-  registerOnChange(fn: any) {
+  registerOnChange(fn: Function) {
     this.onChange = fn;
   }
-  registerOnTouched(fn: any) {
+  registerOnTouched(fn: Function) {
     this.onTouch = fn;
   }
   writeValue(value: any): void {
     if (value) return (this.value = value);
     this.value = '';
+  }
+
+  public get invalid(): boolean {
+    return this.control ? this.control.invalid ?? false : false;
+  }
+
+  showError = (): boolean => {
+    if (!this.control) {
+      return false;
+    }
+
+    const { dirty, touched } = this.control;
+
+    return this.invalid ? (dirty ?? false) || (touched ?? false) : false;
+  };
+
+  public get errors(): Array<string> {
+    if (!this.control) {
+      return [];
+    }
+    const { errors } = this.control;
+    if (errors) {
+      return Object.keys(errors).map((key) =>
+        this.errorMessages.has(key)
+          ? this.errorMessages.get?.(key)
+          : errors[key] || key
+      );
+    }
+    return [];
   }
 }
