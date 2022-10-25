@@ -9,6 +9,7 @@ import {
   ElementRef,
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { MaskingType } from '../models/masking.model';
 
 @Component({
   selector: 'iu-text-input[label]',
@@ -21,6 +22,7 @@ export class TextInputComponent implements OnInit, ControlValueAccessor {
   @Input() id: string = 'uniqueIDGeneratorGoesHere';
   @Input() helperText: string = '';
   @Input() required: boolean;
+  @Input() mask: MaskingType;
   @ViewChild('textInput') textInput: ElementRef;
   value: string | number = '';
   onChange: Function = () => {};

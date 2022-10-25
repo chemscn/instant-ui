@@ -12,7 +12,7 @@
 	</ng-container>
 </ng-container>
 <div class="input-container" [ngClass]="{'hasValue': value}" (click)="focusOnTextField()">
-	<input #textInput [id]="id" type="text" [(ngModel)]="value" [value]="value" />
+	<input #textInput [iuMasking]="mask" [id]="id" type="text" [(ngModel)]="value" [value]="value" />
 </div>
 <ng-container *ngIf="showError">
 	<span>{{errors[0]}}</span>
